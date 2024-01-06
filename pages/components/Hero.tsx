@@ -18,7 +18,7 @@ export default function Hero({}: Props) {
     gsap.to("#heroTextContainer", {
       y: "0%",
       color: "white",
-      duration: 2,
+      duration: 2.5,
       ease: "power4.inOut",
       delay: 0.5,
     });

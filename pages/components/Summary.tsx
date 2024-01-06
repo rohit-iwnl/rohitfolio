@@ -13,13 +13,25 @@ export default function Summary({}: Props) {
     gsap.to("#mainContainer", {
       backgroundColor: "#252422",
       ease: "power4.inOut",
+      duration: 2,
+      scrollTrigger: {
+        trigger: "#summaryContainer",
+        start: "top 75%",
+        end: "center center",
+        scrub: true,
+
+      },
+    });
+    gsap.to("#navName", {
+      color:"#403D39",
+      ease: "power4.inOut",
       duration: 1,
       scrollTrigger: {
         trigger: "#summaryContainer",
-        start: "top 80%",
-        end: "20% 40%",
+        start: "top 75%",
+        end: "center center",
         scrub: true,
-        markers: true,
+
       },
     });
     gsap.to("#navContact", {
@@ -32,30 +44,32 @@ export default function Summary({}: Props) {
         start: "top 80%",
         end: "20% 40%",
         scrub: true,
-        markers: true,
+       
       },
     });
     gsap.to("#navAbout", {
-      opacity: 0.5,
+      
+      color:'#403D39',
       duration: 1,
       scrollTrigger: {
         trigger: "#summaryContainer",
         start: "top 80%",
         end: "20% 40%",
         scrub: true,
-        markers: true,
+       
       },
       ease: "power4.inOut",
     });
     gsap.to("#navProjects", {
-      opacity: 0.5,
+      
+      color:'#403D39',
       duration: 1,
       scrollTrigger: {
         trigger: "#summaryContainer",
         start: "top 80%",
         end: "20% 40%",
         scrub: true,
-        markers: true,
+       
       },
       ease: "power4.inOut",
     });
