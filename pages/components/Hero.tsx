@@ -1,13 +1,14 @@
 import gsap from "gsap";
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { useEffect } from "react";
 import ScrollTrigger from "gsap/src/ScrollTrigger";
 type Props = {};
 
+gsap.registerPlugin(ScrollTrigger);
 export default function Hero({}: Props) {
+  const mainRef = useRef(null);
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
@@ -22,9 +23,52 @@ export default function Hero({}: Props) {
       ease: "power4.inOut",
       delay: 0.5,
     });
+    gsap.to("#mainContainer", {
+      backgroundColor: "#252422",
+      duration: 2.5,
+      ease: "power4.inOut",
+      scrollTrigger: {
+        trigger: mainRef.current,
+        start: "bottom 70%",
+        end: "bottom top",
+        scrub: true,
+        markers: true,
+        onEnter: () => {
+          gsap.to(".word", {
+            scrollTrigger: {
+              trigger: "#summaryContainer",
+              start: "20% top",
+              end: "center center",
+              scrub: true,
+              markers: true,
+            },
+            color: "#EB5E28",
+            stagger: 0.1,
+            duration: 0.5,
+          });
+        },
+        onLeave: () => {
+          gsap.to("#mainContainer", {
+            backgroundColor: "#fffcf2",
+            duration: 2.5,
+            ease: "power4.inOut",
+            scrollTrigger: {
+              trigger: "#summaryContainer",
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+        },
+      },
+    });
   }, []);
   return (
-    <div className="relative h-screen w-screen" id="heroSection">
+    <div
+      className="relative h-screen w-screen z-[1]"
+      id="heroSection"
+      ref={mainRef}
+    >
       {/* Hero Image */}
       <div className="object-cover w-full h-full absolute flex items-center justify-center z-[-20]">
         <Image

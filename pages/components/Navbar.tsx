@@ -22,7 +22,7 @@ export default function Navbar({}: Props) {
       <h1 className="text-primary_dark text-md" id="navName">Rohit Manivel</h1>
       {/* Links */}
       <nav className="hidden md:flex flex-row gap-5 items-center justify-center">
-        <Link href="#about" id="navAbout">
+        <Link href="#aboutContainer" id="navAbout">
           <p>About</p>
         </Link>
         <Link href="#projects" id="navProjects">

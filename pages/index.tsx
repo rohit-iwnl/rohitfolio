@@ -6,6 +6,7 @@ import { clashGrotesk,generalSans } from "@/public/utils/FontLoader";
 import Navbar from "./components/Navbar";
 import Summary from "./components/Summary";
 import dynamic from "next/dynamic";
+import About from "./components/About";
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"),{ssr:false})
 
@@ -15,9 +16,6 @@ export default function Home() {
   useLayoutEffect(() => {
     const lenis = new Lenis();
 
-    lenis.on("scroll", (e: any) => {
-      console.log(e);
-    });
 
     function raf(time: any) {
       lenis.raf(time);
@@ -33,6 +31,7 @@ export default function Home() {
       <main className=" w-screen" id="mainContainer">
         <Hero />
         <DynamicSummary />
+        <About />
       </main>
     </div>
   );
