@@ -17,7 +17,6 @@ export default function Summary({}: Props) {
         start: "20% 75%",
         end: "center center",
         scrub: true,
-        markers: true,
         toggleActions:"play none none reverse",
       },
       color: "#EB5E28",

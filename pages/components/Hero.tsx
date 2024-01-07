@@ -12,6 +12,7 @@ export default function Hero({}: Props) {
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
+      delay:0.3,
       ease: "power4.inOut",
       filter: "blur(20px)",
     });
@@ -21,7 +22,7 @@ export default function Hero({}: Props) {
       color: "white",
       duration: 2.5,
       ease: "power4.inOut",
-      delay: 0.5,
+      delay: 1,
     });
     gsap.to("#mainContainer", {
       backgroundColor: "#252422",
@@ -32,20 +33,8 @@ export default function Hero({}: Props) {
         start: "bottom 70%",
         end: "bottom top",
         scrub: true,
-        markers: true,
+
         onEnter: () => {
-          gsap.to(".word", {
-            scrollTrigger: {
-              trigger: "#summaryContainer",
-              start: "20% top",
-              end: "center center",
-              scrub: true,
-              markers: true,
-            },
-            color: "#EB5E28",
-            stagger: 0.1,
-            duration: 0.5,
-          });
         },
         onLeave: () => {
           gsap.to("#mainContainer", {
