@@ -17,12 +17,11 @@ export default function Summary({}: Props) {
         start: "20% 75%",
         end: "center center",
         scrub: true,
-        toggleActions:"play none none reverse",
+        toggleActions: "play none none reverse",
       },
       color: "#EB5E28",
       stagger: 0.1,
       duration: 0.5,
-
     });
   }, []);
   return (
@@ -34,7 +33,7 @@ export default function Summary({}: Props) {
             id="summaryText"
           >
             I&apos;m a CS student at ASU. I solve problems with code and design.
-            I also create interactive experiences for the web
+            I also create interactive experiences for the web.
           </p>
         </div>
       </div>

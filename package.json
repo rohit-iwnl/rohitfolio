@@ -14,6 +14,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-simple-typewriter": "^5.0.1",
+    "react-textfit": "^1.1.1",
     "split-type": "^0.3.4"
   },
   "devDependencies": {
