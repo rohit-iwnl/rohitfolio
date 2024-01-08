@@ -2,20 +2,22 @@ import { Inter } from "next/font/google";
 import { useLayoutEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import Hero from "./components/Hero";
-import { clashGrotesk,generalSans } from "@/public/utils/FontLoader";
+import { clashGrotesk, generalSans } from "@/public/utils/FontLoader";
 import Navbar from "./components/Navbar";
 import Summary from "./components/Summary";
 import dynamic from "next/dynamic";
 import About from "./components/About";
+import Experience from "./components/Experience";
 
-const DynamicSummary = dynamic(() => import("@/pages/components/Summary"),{ssr:false})
+const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   useLayoutEffect(() => {
     const lenis = new Lenis();
-
 
     function raf(time: any) {
       lenis.raf(time);
@@ -32,6 +34,7 @@ export default function Home() {
         <Hero />
         <DynamicSummary />
         <About />
+        <Experience />
       </main>
     </div>
   );

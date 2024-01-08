@@ -37,7 +37,7 @@ export default function Navbar({}: Props) {
           </p>
         </Link>
       </nav>
-      <div className="cursor-pointerx relative flex md:hidden rounded-full bg-primary_dark py-1 px-3 flex-row items-center justify-center">
+      <div className="cursor-pointerx relative flex md:hidden rounded-full bg-primary_dark py-1 px-3 flex-row items-center justify-center" id="navMenuContainer">
         <p className="text-accent">Menu</p>
       </div>
     </header>

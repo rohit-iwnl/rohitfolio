@@ -12,7 +12,7 @@ export default function Hero({}: Props) {
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
-      delay:0.3,
+      delay: 0.3,
       ease: "power4.inOut",
       filter: "blur(20px)",
     });
@@ -35,6 +35,28 @@ export default function Hero({}: Props) {
         scrub: true,
 
         onEnter: () => {
+          gsap.to("#navMenuContainer", {
+            backgroundColor: "#fffcf2",
+            color: "#252422",
+            scrollTrigger: {
+              trigger: mainRef.current,
+              start: "bottom 70%",
+              end: "bottom top",
+              scrub: true,
+            },
+            ease: "power4.inOut",
+          });
+          gsap.to("#navContact", {
+            backgroundColor: "#fffcf2",
+            color: "#252422",
+            scrollTrigger: {
+              trigger: mainRef.current,
+              start: "bottom 70%",
+              end: "bottom top",
+              scrub: true,
+            },
+            ease: "power4.inOut",
+          });
         },
         onLeave: () => {
           gsap.to("#mainContainer", {
@@ -47,6 +69,29 @@ export default function Hero({}: Props) {
               end: "bottom top",
               scrub: true,
             },
+          
+          });
+          gsap.to("#navMenuContainer", {
+            backgroundColor: "#252422",
+            color: "#fffcf2",
+            scrollTrigger: {
+              trigger: "#summaryContainer",
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+            ease: "power4.inOut",
+          });
+          gsap.to("#navContact", {
+            backgroundColor: "#252422",
+            color: "#fffcf2",
+            scrollTrigger: {
+              trigger: "#summaryContainer",
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+            ease: "power4.inOut",
           });
         },
       },

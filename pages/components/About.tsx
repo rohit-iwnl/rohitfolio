@@ -45,7 +45,7 @@ export default function About({}: Props) {
   return (
     <div
       ref={aboutSection}
-      className="relative h-screen w-screen"
+      className="relative min-h-screen w-screen"
       id="aboutContainer"
     >
       {/* Section Heading */}
@@ -84,7 +84,7 @@ export default function About({}: Props) {
             interactive experiences for the web based in Arizona, USA. I study
             MS in Computer Science at{" "}
             <span className="underline decoration-accent font-medium md:text-[1.3rem] lg:text-[1.5rem]">
-              Arizona State University
+              Arizona State University.
             </span>
             &nbsp;Go Sun Devils!
           </p>
