@@ -50,7 +50,7 @@ export default function About({}: Props) {
     >
       {/* Section Heading */}
       <div className="flex items-center justify-center">
-        <h1 className="text-tertiary text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5vw]">
+        <h1 id="aboutSectionHeading" className="text-tertiary text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5vw]">
           About Me
         </h1>
       </div>

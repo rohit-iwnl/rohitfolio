@@ -69,7 +69,6 @@ export default function Hero({}: Props) {
               end: "bottom top",
               scrub: true,
             },
-          
           });
           gsap.to("#navMenuContainer", {
             backgroundColor: "#252422",

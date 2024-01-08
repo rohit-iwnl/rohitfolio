@@ -7,7 +7,8 @@ import Navbar from "./components/Navbar";
 import Summary from "./components/Summary";
 import dynamic from "next/dynamic";
 import About from "./components/About";
-import Experience from "./components/Experience";
+import Experience from "./components/Projects";
+import Projects from "./components/Projects";
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
   ssr: false,
@@ -34,7 +35,7 @@ export default function Home() {
         <Hero />
         <DynamicSummary />
         <About />
-        <Experience />
+        <Projects />
       </main>
     </div>
   );
