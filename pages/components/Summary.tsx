@@ -1,9 +1,9 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import Image from "next/image";
+
 import SplitType from "split-type";
-import { Duru_Sans } from "next/font/google";
+
 
 type Props = {};
 gsap.registerPlugin(ScrollTrigger);

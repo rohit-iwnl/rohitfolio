@@ -2,7 +2,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { Cursor, Typewriter, useTypewriter } from "react-simple-typewriter";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,21 +27,8 @@ export default function About({}: Props) {
     delaySpeed: 1000,
   });
   const aboutSection = useRef(null);
-  // useEffect(() => {
-  //   ScrollTrigger.create({
-  //     trigger: aboutSection.current,
-  //     start: "top bottom",
-  //     animation: gsap.timeline().fromTo(
-  //       "#mainContainer",
-  //       {
-  //         backgroundColor: "#252422",
-  //       },
-  //       {
-  //         backgroundColor: "#fffcf2",
-  //       }
-  //     ),
-  //   });
-  // }, [aboutSection]);
+  const aboutSectionImage = useRef(null);
+  
   return (
     <div
       ref={aboutSection}
@@ -50,7 +37,7 @@ export default function About({}: Props) {
     >
       {/* Section Heading */}
       <div className="flex items-center justify-center">
-        <h1 id="aboutSectionHeading" className="text-tertiary text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5vw]">
+        <h1 id="aboutSectionHeading" className="text-tertiary font-bold text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5vw]">
           About Me
         </h1>
       </div>
@@ -58,7 +45,7 @@ export default function About({}: Props) {
       <div className="flex flex-col md:flex-row justify-between">
         {/* About Section Photo */}
         <div className="w-[100vw] h-[50vh] md:w-[95vw] md:h-[100vh] px-[5vh] py-[2vh]">
-          <Image
+          <Image ref={aboutSectionImage}
             src="/assets/images/about.webp"
             alt="Photo of Rohit"
             width={0}
