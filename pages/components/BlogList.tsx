@@ -21,11 +21,11 @@ export default function BlogList({ posts }: Props) {
             alt="Project Image"
             width={0}
             height={0}
-            className="w-full h-full group-hover:scale-110 transition-transform duration-[750ms] ease-in-out"
+            className="w-full z-[-10] h-full group-hover:scale-105 transition-transform duration-[750ms] ease-in-out"
             sizes="20vw-100vw"
             objectFit="contain"
           />
-          <div className="px-6 py-4">
+          <div className="px-6 py-4 z-[20]">
             <div className="font-bold text-xl mb-2 text-accent">
               {post.title}
             </div>
