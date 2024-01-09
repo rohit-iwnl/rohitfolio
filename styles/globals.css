@@ -58,3 +58,6 @@
   }
 }
 
+.blur_lg{
+  backdrop-filter: blur(10px);
+}

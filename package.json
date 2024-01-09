@@ -9,14 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/react": "^3.0.11",
+    "@sanity/icons": "^2.0",
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/types": "^3.19",
+    "@sanity/ui": "^2.0.0-beta",
+    "@sanity/vision": "3",
     "@studio-freight/lenis": "^1.0.33",
+    "class-variance-authority": "^0.7.0",
     "gsap": "^3.12.4",
-    "next": "14.0.4",
-    "react": "^18",
+    "next": "^14.0",
+    "next-sanity": "^7.0.7",
+    "react": "^18.2",
     "react-dom": "^18",
     "react-simple-typewriter": "^5.0.1",
-    "react-textfit": "^1.1.1",
-    "split-type": "^0.3.4"
+    "sanity": "^3.19",
+    "split-type": "^0.3.4",
+    "styled-components": "^6.0"
   },
   "devDependencies": {
     "@types/node": "^20",

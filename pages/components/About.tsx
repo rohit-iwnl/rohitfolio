@@ -28,7 +28,8 @@ export default function About({}: Props) {
   });
   const aboutSection = useRef(null);
   const aboutSectionImage = useRef(null);
-  
+
+
   return (
     <div
       ref={aboutSection}
@@ -37,15 +38,19 @@ export default function About({}: Props) {
     >
       {/* Section Heading */}
       <div className="flex items-center justify-center">
-        <h1 id="aboutSectionHeading" className="text-tertiary font-bold text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5vw]">
+        <h1
+          id="aboutSectionHeading"
+          className="text-tertiary font-bold text-[10vw] md:text-[8vw] lg:text-[6vw] xl:text-[5vw]"
+        >
           About Me
         </h1>
       </div>
 
       <div className="flex flex-col md:flex-row justify-between">
         {/* About Section Photo */}
-        <div className="w-[100vw] h-[50vh] md:w-[95vw] md:h-[100vh] px-[5vh] py-[2vh]">
-          <Image ref={aboutSectionImage}
+        <div className="w-[100vw] min-h-[50vh] md:w-[95vw] md:min-h-[100vh] px-[5vh] py-[2vh]">
+          <Image
+            ref={aboutSectionImage}
             src="/assets/images/about.webp"
             alt="Photo of Rohit"
             width={0}
@@ -63,14 +68,14 @@ export default function About({}: Props) {
 
         {/* About Me */}
         <div className="flex items-start w-screen min-h-[50vh]  flex-col md:h-screen md:max-h-[100vh] justify-start p-[5vh] gap-[1rem]">
-          <h2 className=" md:text-[1.7rem] lg:text-[2.2rem] xl:text-[3rem]">
+          <h2 className=" md:text-[1.7rem] lg:text-[2.2rem] xl:text-[3rem] text-tertiary">
             Let me spill something about myself
           </h2>
-          <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem]">
+          <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             I am a creative and passionate developer who loves to build
             interactive experiences for the web based in Arizona, USA. I study
             MS in Computer Science at{" "}
-            <span className="underline decoration-accent font-medium md:text-[1.3rem] lg:text-[1.5rem]">
+            <span className="underline decoration-accent font-medium md:text-[1.3rem] lg:text-[1.5rem] ">
               Arizona State University.
             </span>
             &nbsp;Go Sun Devils!
@@ -91,7 +96,7 @@ export default function About({}: Props) {
             <span className="md:text-[1.3rem] lg:text-[1.5rem]">😉</span>
           </p>
 
-          <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem]">
+          <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             The times I&apos;m not worrying about projects and deadlines, I{" "}
             <span className="text-accent font-medium text-start  md:text-[1.3rem] lg:text-[1.5rem]">
               {text}
