@@ -88,13 +88,14 @@ export default function Hero({}: Props) {
                           start: "70% top",
                           end: "bottom top",
                           scrub: true,
+
                         },
                       });
                       
                     },
                     onEnter: () => {
                       gsap.to("#skillSectionHeading", {
-                        color: "#fffcf2",
+                        color: "#403D39",
                         scrollTrigger: {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",

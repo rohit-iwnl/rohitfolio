@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Toolbox from "./components/Toolbox";
+import Contact from "./components/Contact";
 
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
@@ -35,6 +36,7 @@ export default function Home() {
         <Toolbox />
 
         <Projects />
+        <Contact />
       </main>
     </div>
   );

@@ -19,7 +19,9 @@ export default function Navbar({}: Props) {
       id="navbarContainer"
     >
       {/* Logo */}
-      <h1 className="text-primary_dark text-md" id="navName">Rohit Manivel</h1>
+      <h1 className="text-primary_dark text-md" id="navName">
+        Rohit Manivel
+      </h1>
       {/* Links */}
       <nav className="hidden md:flex flex-row gap-5 items-center justify-center">
         <Link href="#aboutContainer" id="navAbout">
@@ -28,18 +30,22 @@ export default function Navbar({}: Props) {
         <Link href="#projects" id="navProjects">
           <p>Projects</p>
         </Link>
-        <Link href="#contact">
+        <Link href="#contactMe">
           <p
             className="cursor-pointer bg-primary_dark text-primary rounded-full hover:bg-accent hover:text-primary transition-all duration-300 ease-in-out hover:font-semibold hover:px-3 p-2"
             id="navContact"
           >
-            Contact Me
+            Lets Talk
           </p>
         </Link>
       </nav>
-      <div className="cursor-pointerx relative flex md:hidden rounded-full bg-primary_dark py-1 px-3 flex-row items-center justify-center" id="navMenuContainer">
-        <p className="text-accent">Menu</p>
-      </div>
+      <Link
+        href="#contactMe"
+        className="cursor-pointerx relative flex md:hidden rounded-full bg-primary_dark py-1 px-3 flex-row items-center justify-center"
+        id="navMenuContainer"
+      >
+        <p className="text-accent">Lets Talk</p>
+      </Link>
     </header>
   );
 }

@@ -98,7 +98,7 @@ export default function Toolbox({}: Props) {
           Languages
         </h2>
         <div>
-          <Marquee autoFill className="w-screen" speed={50}>
+          <Marquee className="w-screen" autoFill loop={1}>
             {languages.map((language, idx) => (
               <Skill
                 key={idx}
