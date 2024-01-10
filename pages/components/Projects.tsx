@@ -10,7 +10,7 @@ export default function Projects({}: Props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch data from Sanity using your GROQ query
+
         const data = await client.fetch(groq`
           *[_type == 'post'] {
             ...,
@@ -20,14 +20,13 @@ export default function Projects({}: Props) {
         `);
         console.log(data);
 
-        // Update the component state with the fetched data
+
         setProjects(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
-    // Call the fetchData function
     fetchData();
   }, []);
   return (
@@ -39,7 +38,9 @@ export default function Projects({}: Props) {
       >
         Projects
       </h1>
-      <div className="pt-4 md:p-5 lg:p-8 xl:p-12">{projects && <BlogList posts={projects} />}</div>
+      <div className="pt-4 md:p-5 lg:p-8 xl:p-12">
+        {projects && <BlogList posts={projects} />}
+      </div>
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function About({}: Props) {
       "skateboard around the city",
       "swim",
       "solve a lot of cubes",
-      "learn how to center a div",
+    "learn how to center a div",
       "gulp down a cup of coffee and sit down to code my side projects",
       'watch "Silicon Valley" for the 100th time',
       "headbang to eden music",

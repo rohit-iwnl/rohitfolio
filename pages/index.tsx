@@ -5,10 +5,9 @@ import { clashGrotesk, generalSans } from "@/public/utils/FontLoader";
 import Navbar from "./components/Navbar";
 import dynamic from "next/dynamic";
 import About from "./components/About";
-
 import Projects from "./components/Projects";
-import { groq } from "next-sanity";
-import { client } from "@/lib/sanity.client";
+import Toolbox from "./components/Toolbox";
+
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
   ssr: false,
@@ -25,7 +24,7 @@ export default function Home() {
 
     requestAnimationFrame(raf);
     lenis.reset();
-  },[]);
+  }, []);
   return (
     <div className={`${generalSans.variable} ${clashGrotesk.variable}`}>
       <Navbar />
@@ -33,6 +32,8 @@ export default function Home() {
         <Hero />
         <DynamicSummary />
         <About />
+        <Toolbox />
+
         <Projects />
       </main>
     </div>
