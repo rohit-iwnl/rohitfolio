@@ -88,7 +88,7 @@ export default function Hero({}: Props) {
                           start: "70% top",
                           end: "bottom top",
                           scrub: true,
-                          markers: true,
+
                           onLeave: () => {
                             gsap.to("#navbarContainer", {
                               transform: "translateY(0%)",
