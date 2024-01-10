@@ -88,20 +88,9 @@ export default function Hero({}: Props) {
                           start: "70% top",
                           end: "bottom top",
                           scrub: true,
-
-                          onLeave: () => {
-                            gsap.to("#navbarContainer", {
-                              transform: "translateY(0%)",
-                              scrollTrigger: {
-                                trigger: "#toolboxContainer",
-                                start: "bottom 90%",
-                                end: "bottom top",
-                                scrub: true,
-                              },
-                            });
-                          },
                         },
                       });
+                      
                     },
                     onEnter: () => {
                       gsap.to("#skillSectionHeading", {
@@ -113,15 +102,15 @@ export default function Hero({}: Props) {
                           scrub: true,
                         },
                       });
-                      // gsap.to("#navName",{
-                      //   opacity:0,
-                      //   scrollTrigger:{
-                      //     trigger:"#aboutContainer",
-                      //     start:"bottom 90%",
-                      //     end:"bottom top",
-                      //     scrub:true,
-                      //   }
-                      // })
+                      gsap.to("#navName",{
+                        opacity:0,
+                        scrollTrigger:{
+                          trigger:"#aboutContainer",
+                          start:"bottom 90%",
+                          end:"bottom top",
+                          scrub:true,
+                        }
+                      })
                       // gsap.to("#navMenuContainer",{
                       //   opacity:0,
                       //   scrollTrigger:{
@@ -131,15 +120,6 @@ export default function Hero({}: Props) {
                       //     scrub:true,
                       //   }
                       // })
-                      gsap.to("#navbarContainer", {
-                        transform: "translateY(-100%)",
-                        scrollTrigger: {
-                          trigger: "#aboutContainer",
-                          start: "bottom 90%",
-                          end: "bottom top",
-                          scrub: true,
-                        },
-                      });
                       gsap.to("#languagesh2", {
                         color: "#EB5E28",
                         scrollTrigger: {
