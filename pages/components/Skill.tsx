@@ -16,7 +16,7 @@ export default function Skill({ imagePath, altText, skillName }: Props) {
         width={0}
         height={0}
         sizes="100vw"
-        className="p-5  object-contain w-20 h-20 md:w-32 md:h-32 filter group-hover:scale-125 drop-shadow-md shadow-accent group-hover:drop-shadow-2xl transition duration-300 ease-in-out"
+        className="p-4 object-contain w-20 h-20 md:w-32 md:h-32 filter group-hover:scale-125 drop-shadow-md shadow-accent group-hover:drop-shadow-2xl transition duration-300 ease-in-out"
       />
       <p className="font-medium leading-loose text-xl text-tertiary">{skillName}</p>
     </div>

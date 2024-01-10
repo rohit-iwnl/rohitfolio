@@ -92,7 +92,7 @@ export default function About({}: Props) {
             {" "}
             I am currently on the lookout of Summer &apos;24 interships
             opportunities.Please do reach out to me if you think I&apos;ll be a
-            good fit in your team. I would never say to referrals{" "}
+            good fit in your team. I would never say no to referrals{" "}
             <span className="md:text-[1.3rem] lg:text-[1.5rem]">😉</span>
           </p>
 
