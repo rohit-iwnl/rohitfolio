@@ -1,8 +1,5 @@
 import React from "react";
 import Skill from "./Skill";
-import Image from "next/image";
-import Slider from "./Slider";
-import Logos from "./Logos";
 import Marquee from "react-fast-marquee";
 
 type Props = {};
@@ -66,8 +63,6 @@ const frameworks = [
   },
   { imagePath: "flutter", altText: "Flutter", skillName: "Flutter" },
   { imagePath: "node", altText: "Nodejs", skillName: "Nodejs" },
-
-
 ];
 
 const databases = [
@@ -79,7 +74,7 @@ const databases = [
 
 export default function Toolbox({}: Props) {
   return (
-    <div className="w-screen h-screen relative" id="toolboxContainer">
+    <div className="w-screen min-h-screen relative" id="toolboxContainer">
       <div className="flex items-center justify-center">
         <h1
           id="skillSectionHeading"
@@ -99,7 +94,9 @@ export default function Toolbox({}: Props) {
               skillName={skill.skillName}
               />
             ))} */}
-        <h2 className="text-2xl text-primary_dark p-5" id="languagesh2">Languages</h2>
+        <h2 className="text-2xl text-primary_dark p-5" id="languagesh2">
+          Languages
+        </h2>
         <div>
           <Marquee autoFill className="w-screen" speed={50}>
             {languages.map((language, idx) => (
@@ -112,7 +109,9 @@ export default function Toolbox({}: Props) {
             ))}
           </Marquee>
         </div>
-        <h2 className="text-2xl text-primary_dark p-5" id="frameworksh2">Frameworks</h2>
+        <h2 className="text-2xl text-primary_dark p-5" id="frameworksh2">
+          Frameworks
+        </h2>
         <div className="">
           <Marquee
             autoFill
