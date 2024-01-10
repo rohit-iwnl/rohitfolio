@@ -22,7 +22,7 @@ export default function Hero({}: Props) {
       color: "white",
       duration: 2.5,
       ease: "power4.inOut",
-      delay: 1,
+      delay: 0.4,
     });
     gsap.to("#mainContainer", {
       backgroundColor: "#252422",
@@ -78,7 +78,7 @@ export default function Hero({}: Props) {
                     start: "bottom 90%",
                     end: "bottom top",
                     scrub: true,
-                    onLeave:() =>{
+                    onLeave: () => {
                       gsap.to("#mainContainer", {
                         backgroundColor: "#fffcf2",
                         duration: 2.5,
@@ -88,29 +88,31 @@ export default function Hero({}: Props) {
                           start: "70% top",
                           end: "bottom top",
                           scrub: true,
-                        markers:true,
-                      onLeave:() =>{
-                        gsap.to("#navbarContainer",{
-                          transform:"translateY(0%)",
-                          scrollTrigger:{
-                            trigger:"#toolboxContainer",
-                            start:"bottom 90%",
-                            end:"bottom top",
-                            scrub:true,
-                          }
-                        })
-                      }}
-                    })},
-                    onEnter:() => {
-                      gsap.to("#skillSectionHeading",{
-                        color:"#fffcf2",
-                        scrollTrigger:{
-                          trigger:"#aboutContainer",
-                          start:"bottom 90%",
-                          end:"bottom top",
-                          scrub:true,
-                        }
-                      })
+                          markers: true,
+                          onLeave: () => {
+                            gsap.to("#navbarContainer", {
+                              transform: "translateY(0%)",
+                              scrollTrigger: {
+                                trigger: "#toolboxContainer",
+                                start: "bottom 90%",
+                                end: "bottom top",
+                                scrub: true,
+                              },
+                            });
+                          },
+                        },
+                      });
+                    },
+                    onEnter: () => {
+                      gsap.to("#skillSectionHeading", {
+                        color: "#fffcf2",
+                        scrollTrigger: {
+                          trigger: "#aboutContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
                       // gsap.to("#navName",{
                       //   opacity:0,
                       //   scrollTrigger:{
@@ -129,43 +131,43 @@ export default function Hero({}: Props) {
                       //     scrub:true,
                       //   }
                       // })
-                      gsap.to("#navbarContainer",{
-                        transform:"translateY(-100%)",
-                        scrollTrigger:{
-                          trigger:"#aboutContainer",
-                          start:"bottom 90%",
-                          end:"bottom top",
-                          scrub:true,
-                        }
-                      })
-                      gsap.to("#languagesh2",{
-                        color:"#EB5E28",
-                        scrollTrigger:{
-                          trigger:"#aboutContainer",
-                          start:"bottom 90%",
-                          end:"bottom top",
-                          scrub:true,
-                        }
-                      })
-                      gsap.to("#frameworksh2",{
-                        color:"#EB5E28",
-                        scrollTrigger:{
-                          trigger:"#aboutContainer",
-                          start:"bottom 90%",
-                          end:"bottom top",
-                          scrub:true,
-                        }
-                      })
-                      gsap.to("#devh2",{
-                        color:"#EB5E28",
-                        scrollTrigger:{
-                          trigger:"#aboutContainer",
-                          start:"bottom 90%",
-                          end:"bottom top",
-                          scrub:true,
-                        }
-                      })
-                    }
+                      gsap.to("#navbarContainer", {
+                        transform: "translateY(-100%)",
+                        scrollTrigger: {
+                          trigger: "#aboutContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
+                      gsap.to("#languagesh2", {
+                        color: "#EB5E28",
+                        scrollTrigger: {
+                          trigger: "#aboutContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
+                      gsap.to("#frameworksh2", {
+                        color: "#EB5E28",
+                        scrollTrigger: {
+                          trigger: "#aboutContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
+                      gsap.to("#devh2", {
+                        color: "#EB5E28",
+                        scrollTrigger: {
+                          trigger: "#aboutContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
+                    },
                   },
                 });
               },
