@@ -94,7 +94,7 @@ export default function Toolbox({}: Props) {
               skillName={skill.skillName}
               />
             ))} */}
-        <h2 className="text-2xl text-primary_dark p-5" id="languagesh2">
+        <h2 className="text-2xl text-primary_dark p-3 md:p-5" id="languagesh2">
           Languages
         </h2>
         <div>
@@ -109,7 +109,7 @@ export default function Toolbox({}: Props) {
             ))}
           </Marquee>
         </div>
-        <h2 className="text-2xl text-primary_dark p-5" id="frameworksh2">
+        <h2 className="text-2xl text-primary_dark p-3 md:p-5" id="frameworksh2">
           Frameworks
         </h2>
         <div className="">
@@ -130,7 +130,7 @@ export default function Toolbox({}: Props) {
             ))}
           </Marquee>
         </div>
-        <h2 className="text-2xl text-primary_dark p-5" id="devh2">
+        <h2 className="text-2xl text-primary_dark p-3 md:p-5" id="devh2">
           Database & Developer Tools
         </h2>
         <div className="">
