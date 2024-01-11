@@ -67,13 +67,13 @@ export default function ContactUsForm() {
           placeholder="Message for me"
           rows={6}
           required
-          {...register("message")}
+          {...register("message")} 
         />
 
         <button
           disabled={isSubmitting}
           type="submit"
-          className="bg-tertiary px-6 py-3 hover:drop-shadow-xl hover:text-accent transition duration-1000 ease-in-out disabled:bg-primary_dark block-primary rounded-md cursor-pointer text-primary-50 mt-4 font-bold"
+          className="bg-tertiary px-6 py-3 hover:drop-shadow-xl text-primary hover:text-accent transition duration-500 ease-in-out disabled:bg-primary_dark block-primary rounded-md cursor-pointer text-primary-50 mt-4 font-bold"
         >
           Send it 🚀
         </button>

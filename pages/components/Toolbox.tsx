@@ -55,7 +55,8 @@ const frameworks = [
   { imagePath: "tailwind", altText: "tailwindcss", skillName: "Tailwindcss" },
   { imagePath: "react", altText: "React", skillName: "React" },
   { imagePath: "nextjs", altText: "Nextjs", skillName: "Nextjs" },
-  { imagePath: "angular", altText: "Angular", skillName: "Angular" },
+  { imagePath: "swiftui", altText: "SwiftUI", skillName: "SwiftUI" },
+
   {
     imagePath: "reactnative",
     altText: "reactnative",
@@ -71,12 +72,14 @@ const databases = [
   { imagePath: "postgres", altText: "Postgres", skillName: "Postgres" },
   { imagePath: "firebase", altText: "Firebase", skillName: "Firebase" },
   { imagePath: "git", altText: "Git", skillName: "Git" },
-
 ];
 
 export default function Toolbox({}: Props) {
   return (
-    <div className="w-screen min-h-[90vh] pb-[5vh] relative" id="toolboxContainer">
+    <div
+      className="w-screen min-h-[90vh] pb-[5vh] relative"
+      id="toolboxContainer"
+    >
       <div className="flex items-center justify-center">
         <h1
           id="skillSectionHeading"

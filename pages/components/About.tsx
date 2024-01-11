@@ -15,11 +15,13 @@ export default function About({}: Props) {
       "skateboard around the city",
       "swim",
       "solve a lot of cubes",
-    "learn how to center a div",
+      "learn how to center a div",
       "gulp down a cup of coffee and sit down to code my side projects",
       'watch "Silicon Valley" for the 100th time',
       "headbang to eden music",
       "am committing thousands of lines of code saying 'fixed a typo'",
+      "am trying to figure out how to make my website look better",
+      "",
     ],
     loop: true,
     typeSpeed: 40,
@@ -28,7 +30,6 @@ export default function About({}: Props) {
   });
   const aboutSection = useRef(null);
   const aboutSectionImage = useRef(null);
-
 
   return (
     <div
@@ -90,9 +91,11 @@ export default function About({}: Props) {
           </p>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             {" "}
-            I am currently on the lookout of Summer &apos;24 interships
-            opportunities.Please do reach out to me if you think I&apos;ll be a
-            good fit in your team. I would never say no to referrals{" "}
+            I interned at Rubrik Inc for 5 months as Customer Success Engineer
+            back in Bengaluru, India . I am currently on the lookout of software
+            engineering Summer &apos;24 interships opportunities.Please do reach
+            out to me if you think I&apos;ll be a good fit in your team. I would
+            never say no to referrals{" "}
             <span className="md:text-[1.3rem] lg:text-[1.5rem]">😉</span>
           </p>
 

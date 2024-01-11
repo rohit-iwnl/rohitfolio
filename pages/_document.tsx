@@ -6,6 +6,9 @@ export default function Document() {
       <Head />
       <title>Rohitfolio</title>
       <meta name="description" content="Rohit's Portfolio" />
+      <meta name="author" content="Rohit Manivel" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       <body>
         <Main />
         <NextScript />
