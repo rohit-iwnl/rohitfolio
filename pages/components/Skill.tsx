@@ -11,7 +11,7 @@ export default function Skill({ imagePath, altText, skillName }: Props) {
   return (
     <div className="group relative flex flex-col items-center group">
       <Image
-        src={`/assets/images/skillSection/bw/${imagePath}.svg`}
+        src={`/assets/images/skillSection/${imagePath}.svg`}
         alt={altText}
         width={0}
         height={0}

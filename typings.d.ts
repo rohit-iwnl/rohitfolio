@@ -14,6 +14,7 @@ interface Post extends Base {
   slug: Slug;
   mainImage: MainImage;
   body: Block[];
+  hyperlink: string;
 }
 
 interface Author extends Base {

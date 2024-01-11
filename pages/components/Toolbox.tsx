@@ -76,7 +76,7 @@ const databases = [
 
 export default function Toolbox({}: Props) {
   return (
-    <div className="w-screen min-h-screen relative" id="toolboxContainer">
+    <div className="w-screen min-h-[90vh] pb-[5vh] relative" id="toolboxContainer">
       <div className="flex items-center justify-center">
         <h1
           id="skillSectionHeading"

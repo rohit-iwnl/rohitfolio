@@ -8,7 +8,6 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Toolbox from "./components/Toolbox";
 import Contact from "./components/Contact";
-import { NextUIProvider } from "@nextui-org/react";
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
   ssr: false,
@@ -16,7 +15,7 @@ const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
 
 export default function Home() {
   useLayoutEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({ autoResize: true, lerp: 0.05 });
 
     function raf(time: any) {
       lenis.raf(time);
@@ -24,10 +23,11 @@ export default function Home() {
     }
 
     requestAnimationFrame(raf);
-    lenis.reset();
   }, []);
+
   return (
     <div className={`${generalSans.variable} ${clashGrotesk.variable}`}>
+      {/* <DyanmicHelloAnimation /> */}
       <Navbar />
       <main className=" w-screen" id="mainContainer">
         <Hero />
@@ -35,9 +35,8 @@ export default function Home() {
         <About />
         <Toolbox />
         <Projects />
-        <NextUIProvider>
-          <Contact />
-        </NextUIProvider>
+
+        <Contact />
       </main>
     </div>
   );

@@ -1,20 +1,22 @@
 import gsap from "gsap";
-import React, { useRef } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { useEffect } from "react";
 import ScrollTrigger from "gsap/src/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
 type Props = {};
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Hero({}: Props) {
   const mainRef = useRef(null);
+
   useEffect(() => {
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
-      delay: 0.5,
+      delay: 1,
       ease: "power4.inOut",
-      filter: "blur(20px)",
+      filter: "blur(25px)",
     });
 
     gsap.to("#heroTextContainer", {
@@ -22,7 +24,7 @@ export default function Hero({}: Props) {
       color: "white",
       duration: 2.5,
       ease: "power4.inOut",
-      delay: 0.4,
+      delay: 1.2,
     });
     gsap.to("#mainContainer", {
       backgroundColor: "#252422",
@@ -69,6 +71,17 @@ export default function Hero({}: Props) {
               end: "bottom top",
               scrub: true,
               onLeave: () => {
+                gsap.to("#navContact", {
+                  backgroundColor: "#fffcf2",
+                  color: "#252422",
+                  scrollTrigger: {
+                    trigger: "#aboutContainer",
+                    start: "bottom 70%",
+                    end: "bottom top",
+                    scrub: true,
+                  },
+                  ease: "power4.inOut",
+                });
                 gsap.to("#mainContainer", {
                   backgroundColor: "#252422",
                   duration: 2.5,
@@ -198,7 +211,7 @@ export default function Hero({}: Props) {
       <div className="h-screen w-screen flex items-center justify-center max-w-full absolute">
         <div className="overflow-hidden">
           <h1
-            className="outline_sm md:outline_lg text-[10vw] py-5 text-transparent transform translate-y-full"
+            className="outline_sm md:outline_lg text-[10vw] py-5 text-transparent  transform translate-y-full"
             id="heroTextContainer"
           >
             Hey, I&apos;m Rohit

@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
-import { Input, Textarea } from "@nextui-org/react";
+import { Button, Input, Textarea } from "@nextui-org/react";
 import { SocialIcon } from "react-social-icons";
 import Link from "next/link";
 import Clock from "react-live-clock";
 
 import dynamic from "next/dynamic";
+import ContactUsForm from "./ContactForm";
 
 const DynamicLiveClock = dynamic(() => import("@/pages/components/LiveClock"), {
   ssr: false,
@@ -14,9 +15,7 @@ const DynamicLiveClock = dynamic(() => import("@/pages/components/LiveClock"), {
 type Props = {};
 
 export default function Contact({}: Props) {
-  const [email, setEmail] = React.useState("");
-  const [name, setName] = React.useState("");
-  const [message, setMessage] = React.useState("");
+
   return (
     <div className="relative w-screen min-h-screen" id="contactMe">
       <h1
@@ -29,48 +28,10 @@ export default function Contact({}: Props) {
       <div className="flex flex-col md:flex-row px-[5vh] py-[5vh] w-screen h-auto  space-y-10 ">
         {/* Left Side */}
         <div className="flex flex-col group cursor-pointer gap-6  justify-start">
-          <p className="font-semibold text-[5vw] text-accent leading-[1.2]">
+          <p className="font-semibold text-[7vw] md:text-[5vw]  text-accent leading-[1.2]">
             Want to work together?<br></br>Hit me up
           </p>
-          <Input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="email"
-            label="Email"
-            variant="underlined"
-            classNames={{
-              label: ["text-tertiary"],
-              input: ["bg-transparent", "text-secondary"],
-              innerWrapper: "bg-transparent",
-            }}
-          />
-          <Input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="name"
-            label="Name"
-            variant="underlined"
-            classNames={{
-              label: ["text-tertiary"],
-
-              input: ["bg-transparent", "text-secondary", ,],
-              innerWrapper: "bg-transparent",
-            }}
-          />
-          <Textarea
-            onChange={(e) => {
-              console.log(e.target.value);
-            }}
-            variant="bordered"
-            labelPlacement="outside"
-            placeholder="Enter your message"
-            classNames={{
-              label: ["text-tertiary"],
-              input: ["bg-transparent", "text-tertiary", "min-h-[10vh]"],
-            }}
-          />
+          <ContactUsForm />
         </div>
         {/* Right Side */}
         <div className="flex flex-col md:ml-[10vh]">
@@ -110,9 +71,11 @@ export default function Contact({}: Props) {
                 fgColor="#403D39"
                 className=""
               />
-              <p className="text-xl group-hover:font-medium transition-all duration-500 ease-in-out">
-                Github
-              </p>
+              <Link href="https://www.github.com/rohit-iwnl">
+                <p className="text-xl group-hover:font-medium transition-all duration-500 ease-in-out">
+                  Github
+                </p>
+              </Link>
             </div>
             <div className="flex flex-row items-center group cursor-pointer">
               <SocialIcon
@@ -121,9 +84,11 @@ export default function Contact({}: Props) {
                 fgColor="#403D39"
                 className=""
               />
-              <p className="text-xl group-hover:font-medium transition-all duration-500 ease-in-out">
-                LinkedIn
-              </p>
+              <Link href="https://www.linkedin.com/in/rohit-manivel/">
+                <p className="text-xl group-hover:font-medium transition-all duration-500 ease-in-out">
+                  LinkedIn
+                </p>
+              </Link>
             </div>
             <div className="flex flex-row items-center group cursor-pointer">
               <SocialIcon
@@ -132,9 +97,11 @@ export default function Contact({}: Props) {
                 fgColor="#403D39"
                 className=""
               />
-              <p className="text-xl group-hover:font-medium transition-all duration-500 ease-in-out">
-                Instagram
-              </p>
+              <Link href="https://www.instagram.com/not_rohiit">
+                <p className="text-xl group-hover:font-medium transition-all duration-500 ease-in-out">
+                  Instagram
+                </p>
+              </Link>
             </div>
           </div>
           <p className="font-medium text-[5vw] md:text-[4vw] lg:text-[3vw] leading-relaxed mb-5">

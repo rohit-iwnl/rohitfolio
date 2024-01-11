@@ -57,6 +57,11 @@ export default defineType({
       type: 'datetime',
     }),
     defineField({
+      name: 'hyperlink',
+      title: 'Hyperlink To Project',
+      type: 'string',
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'blockContent',

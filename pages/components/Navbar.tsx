@@ -10,7 +10,7 @@ export default function Navbar({}: Props) {
       y: "0%",
       duration: 2.5,
       ease: "power4.inOut",
-      delay: 0.5,
+      delay: 1.2,
     });
   }, []);
   return (
@@ -19,16 +19,18 @@ export default function Navbar({}: Props) {
       id="navbarContainer"
     >
       {/* Logo */}
-      <h1 className="text-primary_dark text-md" id="navName">
+      <Link href="/">
+      <h1  className="text-primary_dark text-md" id="navName">
         Rohit Manivel
       </h1>
+      </Link>
       {/* Links */}
       <nav className="hidden md:flex flex-row gap-5 items-center justify-center">
         <Link href="#aboutContainer" id="navAbout">
-          <p>About</p>
+          <p className="text-primary_dark">About</p>
         </Link>
         <Link href="#projects" id="navProjects">
-          <p>Projects</p>
+          <p className="text-primary_dark">Projects</p>
         </Link>
         <Link href="#contactMe">
           <p

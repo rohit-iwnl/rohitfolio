@@ -4,7 +4,6 @@ import gsap from "gsap";
 
 import SplitType from "split-type";
 
-
 type Props = {};
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +13,7 @@ export default function Summary({}: Props) {
     gsap.to(".word", {
       scrollTrigger: {
         trigger: "#summaryContainer",
-        start: "20% 75%",
+        start: "40% 75%",
         end: "center center",
         scrub: true,
         toggleActions: "play none none reverse",
