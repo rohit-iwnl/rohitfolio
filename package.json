@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.9",
+
     "@portabletext/react": "^3.0.11",
     "@react-email/components": "0.0.12",
     "@sanity/icons": "^2.0",
@@ -21,7 +21,6 @@
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.4",
-    "lottie-web": "^5.12.2",
     "next": "^14.0",
     "next-sanity": "^7.0.7",
     "react": "^18.2",
@@ -38,8 +37,7 @@
     "sanity": "^3.19",
     "sharp": "^0.33.1",
     "split-type": "^0.3.4",
-    "styled-components": "^6.0",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "styled-components": "^6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -49,7 +47,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8.4.33",
-    "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

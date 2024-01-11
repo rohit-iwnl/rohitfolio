@@ -29,7 +29,7 @@ export default function Navbar({}: Props) {
         <Link href="#aboutContainer" id="navAbout">
           <p className="text-primary_dark">About</p>
         </Link>
-        <Link href="#projects" id="navProjects">
+        <Link href="#projectsContainer" id="navProjects">
           <p className="text-primary_dark">Projects</p>
         </Link>
         <Link href="#contactMe">
