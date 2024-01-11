@@ -85,7 +85,7 @@ export default function Hero({}: Props) {
                         ease: "power4.inOut",
                         scrollTrigger: {
                           trigger: "#toolboxContainer",
-                          start: "70% top",
+                          start: "center top",
                           end: "bottom top",
                           scrub: true,
                         },

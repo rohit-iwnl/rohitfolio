@@ -70,6 +70,8 @@ const databases = [
   { imagePath: "mysql", altText: "MySQL", skillName: "MySQL" },
   { imagePath: "postgres", altText: "Postgres", skillName: "Postgres" },
   { imagePath: "firebase", altText: "Firebase", skillName: "Firebase" },
+  { imagePath: "git", altText: "Git", skillName: "Git" },
+
 ];
 
 export default function Toolbox({}: Props) {
@@ -94,11 +96,11 @@ export default function Toolbox({}: Props) {
               skillName={skill.skillName}
               />
             ))} */}
-        <h2 className="text-2xl text-primary_dark p-3 md:p-5" id="languagesh2">
+        <p className="text-2xl text-primary_dark p-3 md:p-5" id="languagesh2">
           Languages
-        </h2>
+        </p>
         <div>
-          <Marquee className="w-screen" autoFill loop={1}>
+          <Marquee speed={65} className="w-screen" autoFill>
             {languages.map((language, idx) => (
               <Skill
                 key={idx}
@@ -109,9 +111,9 @@ export default function Toolbox({}: Props) {
             ))}
           </Marquee>
         </div>
-        <h2 className="text-2xl text-primary_dark p-3 md:p-5" id="frameworksh2">
+        <p className="text-2xl text-primary_dark p-3 md:p-5" id="frameworksh2">
           Frameworks
-        </h2>
+        </p>
         <div className="">
           <Marquee
             autoFill
@@ -130,9 +132,9 @@ export default function Toolbox({}: Props) {
             ))}
           </Marquee>
         </div>
-        <h2 className="text-2xl text-primary_dark p-3 md:p-5" id="devh2">
+        <p className="text-2xl text-primary_dark p-3 md:p-5" id="devh2">
           Database & Developer Tools
-        </h2>
+        </p>
         <div className="">
           <Marquee
             autoFill
