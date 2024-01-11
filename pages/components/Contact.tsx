@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
-import { Button, Input, Textarea } from "@nextui-org/react";
 import { SocialIcon } from "react-social-icons";
 import Link from "next/link";
-import Clock from "react-live-clock";
 
 import dynamic from "next/dynamic";
 import ContactUsForm from "./ContactForm";
@@ -15,7 +13,6 @@ const DynamicLiveClock = dynamic(() => import("@/pages/components/LiveClock"), {
 type Props = {};
 
 export default function Contact({}: Props) {
-
   return (
     <div className="relative w-screen min-h-screen" id="contactMe">
       <h1

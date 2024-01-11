@@ -3,7 +3,6 @@ import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { useEffect } from "react";
 import ScrollTrigger from "gsap/src/ScrollTrigger";
-import Lenis from "@studio-freight/lenis";
 type Props = {};
 
 gsap.registerPlugin(ScrollTrigger);
