@@ -8,7 +8,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Toolbox from "./components/Toolbox";
 import Contact from "./components/Contact";
-
+import { NextUIProvider } from "@nextui-org/react";
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
   ssr: false,
@@ -34,9 +34,10 @@ export default function Home() {
         <DynamicSummary />
         <About />
         <Toolbox />
-
         <Projects />
-        <Contact />
+        <NextUIProvider>
+          <Contact />
+        </NextUIProvider>
       </main>
     </div>
   );

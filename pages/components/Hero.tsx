@@ -12,7 +12,7 @@ export default function Hero({}: Props) {
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
-      delay: 0.3,
+      delay: 0.5,
       ease: "power4.inOut",
       filter: "blur(20px)",
     });
@@ -88,10 +88,8 @@ export default function Hero({}: Props) {
                           start: "70% top",
                           end: "bottom top",
                           scrub: true,
-
                         },
                       });
-                      
                     },
                     onEnter: () => {
                       gsap.to("#skillSectionHeading", {
@@ -103,15 +101,15 @@ export default function Hero({}: Props) {
                           scrub: true,
                         },
                       });
-                      gsap.to("#navName",{
-                        opacity:0,
-                        scrollTrigger:{
-                          trigger:"#aboutContainer",
-                          start:"bottom 90%",
-                          end:"bottom top",
-                          scrub:true,
-                        }
-                      })
+                      gsap.to("#navName", {
+                        opacity: 0,
+                        scrollTrigger: {
+                          trigger: "#aboutContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
                       // gsap.to("#navMenuContainer",{
                       //   opacity:0,
                       //   scrollTrigger:{

@@ -30,7 +30,7 @@ export default function Projects({}: Props) {
     fetchData();
   }, []);
   return (
-    <div className="relative min-h-screen w-screen p-[5vh] pt-[10vh]" id="projectsContainer">
+    <div className="relative min-h-screen w-screen p-[3vh] pt-[2vh] md:pt-[4vh]" id="projectsContainer">
       {/* Left Side Div */}
       <h1
         id="aboutSectionHeading"
