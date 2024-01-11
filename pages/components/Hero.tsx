@@ -14,7 +14,7 @@ export default function Hero({}: Props) {
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
-      delay: 1,
+      delay: 0.3,
       ease: "power4.inOut",
       filter: "blur(25px)",
     });
@@ -24,7 +24,7 @@ export default function Hero({}: Props) {
       color: "white",
       duration: 2.5,
       ease: "power4.inOut",
-      delay: 1.2,
+      delay: 0.5,
     });
     gsap.to("#mainContainer", {
       backgroundColor: "#252422",

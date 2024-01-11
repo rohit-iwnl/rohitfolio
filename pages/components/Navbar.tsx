@@ -10,7 +10,7 @@ export default function Navbar({}: Props) {
       y: "0%",
       duration: 2.5,
       ease: "power4.inOut",
-      delay: 1.2,
+      delay: 0.75,
     });
   }, []);
   return (
