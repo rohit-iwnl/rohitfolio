@@ -89,7 +89,7 @@ export default function Contact({}: Props) {
             </div>
             <div className="flex flex-row items-center group cursor-pointer">
               <SocialIcon
-                url="https://www.instagram.com/not_rohiitt"
+                url="https://www.instagram.com/not_rohiit"
                 bgColor="transparent"
                 fgColor="#403D39"
                 className=""
