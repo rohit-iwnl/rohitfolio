@@ -72,6 +72,7 @@ const databases = [
   { imagePath: "postgres", altText: "Postgres", skillName: "Postgres" },
   { imagePath: "firebase", altText: "Firebase", skillName: "Firebase" },
   { imagePath: "git", altText: "Git", skillName: "Git" },
+  { imagePath: "figma", altText: "Figma", skillName: "Figma" },
 ];
 
 export default function Toolbox({}: Props) {

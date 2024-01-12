@@ -76,9 +76,13 @@ export default function About({}: Props) {
             Let me spill something about myself
           </h2>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
-            My name is <span className="md:text-[1.3rem] lg:text-[1.5rem] font-medium">Rohit Manivel</span>. I am a creative and passionate developer
-            who loves to build interactive experiences for the web based in
-            Arizona, USA. I study MS in Computer Science at{" "}
+            My name is{" "}
+            <span className="md:text-[1.3rem] lg:text-[1.5rem] font-medium">
+              Rohit Manivel
+            </span>
+            . I am a creative and passionate developer who loves to build
+            interactive experiences for the web based in Arizona, USA. I study
+            MS in Computer Science at{" "}
             <span className="underline decoration-accent font-medium md:text-[1.3rem] lg:text-[1.5rem] ">
               Arizona State University.
             </span>
@@ -95,8 +99,8 @@ export default function About({}: Props) {
             {" "}
             I interned at Rubrik Inc. for 5 months as Customer Success Engineer
             back in Bengaluru, India . I am currently on the lookout of software
-            engineering Summer &apos;24 interships opportunities. Please do
-            reach out to me if you think I&apos;ll be a good fit in your team. I
+            engineering Summer 2024 interships opportunities. Please do reach
+            out to me if you think I&apos;ll be a good fit in your team. Also I
             would never say no to referrals{" "}
             <span className="md:text-[1.3rem] lg:text-[1.5rem]">😉</span>
           </p>

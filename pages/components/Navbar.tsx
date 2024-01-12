@@ -20,17 +20,17 @@ export default function Navbar({}: Props) {
     >
       {/* Logo */}
       <Link href="/">
-        <h1 className="text-primary_dark text-md" id="navName">
+        <h1 className="text-primary_dark text-md " id="navName">
           Rm
         </h1>
       </Link>
       {/* Links */}
       <nav className="hidden md:flex flex-row gap-5 items-center justify-center">
         <Link href="#aboutContainer" id="navAbout">
-          <p className="text-primary_dark">About</p>
+          <p className="text-primary_dark font-medium">About</p>
         </Link>
         <Link href="#projectsContainer" id="navProjects">
-          <p className="text-primary_dark">Projects</p>
+          <p className="text-primary_dark font-medium">Projects</p>
         </Link>
         <Link href="#contactMe">
           <p
@@ -43,7 +43,7 @@ export default function Navbar({}: Props) {
       </nav>
       <Link
         href="#contactMe"
-        className="cursor-pointerx relative flex md:hidden rounded-full bg-primary_dark py-1 px-3 flex-row items-center justify-center"
+        className="cursor-pointer relative flex md:hidden rounded-full bg-primary_dark py-1 px-3 flex-row items-center justify-center"
         id="navMenuContainer"
       >
         <p className="text-accent">Lets Talk</p>
