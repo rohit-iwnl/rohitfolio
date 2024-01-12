@@ -20,9 +20,9 @@ export default function Navbar({}: Props) {
     >
       {/* Logo */}
       <Link href="/">
-      <h1  className="text-primary_dark text-md" id="navName">
-        Rohit Manivel
-      </h1>
+        <h1 className="text-primary_dark text-md" id="navName">
+          Rohit Manivel
+        </h1>
       </Link>
       {/* Links */}
       <nav className="hidden md:flex flex-row gap-5 items-center justify-center">

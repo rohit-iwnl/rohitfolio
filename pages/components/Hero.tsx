@@ -122,6 +122,15 @@ export default function Hero({}: Props) {
                           scrub: true,
                         },
                       });
+                      gsap.to("#navbarContainer", {
+                        opacity: 0,
+                        scrollTrigger: {
+                          trigger: "#projectsContainer",
+                          start: "bottom 90%",
+                          end: "bottom top",
+                          scrub: true,
+                        },
+                      });
                       // gsap.to("#navMenuContainer",{
                       //   opacity:0,
                       //   scrollTrigger:{
