@@ -91,11 +91,11 @@ export default function About({}: Props) {
           </p>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             {" "}
-            I interned at Rubrik Inc for 5 months as Customer Success Engineer
+            I interned at Rubrik Inc. for 5 months as Customer Success Engineer
             back in Bengaluru, India . I am currently on the lookout of software
-            engineering Summer &apos;24 interships opportunities.Please do reach
-            out to me if you think I&apos;ll be a good fit in your team. I would
-            never say no to referrals{" "}
+            engineering Summer &apos;24 interships opportunities. Please do
+            reach out to me if you think I&apos;ll be a good fit in your team. I
+            would never say no to referrals{" "}
             <span className="md:text-[1.3rem] lg:text-[1.5rem]">😉</span>
           </p>
 

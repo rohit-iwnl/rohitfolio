@@ -2,9 +2,6 @@ import { urlFor } from "@/lib/sanity.client";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-
 type Props = {
   posts: Post[];
 };
@@ -15,14 +12,17 @@ export default function BlogList({ posts }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-0 md:space-x-10 lg:space-y-20 lg:grid-cols-2 xl:grid-cols-2 items-center justify-center flex-col">
         {" "}
         {posts.map((post) => (
-            
-            <Link href={post.hyperlink} key={post._id} className="group w-full md:max-w-[40vw] h-auto cursor-pointer hover:scale-105  transition-all duration-[1000ms] ease-in-out rounded overflow-hidden shadow-sm  shadow-primary_dark hover:shadow-accent hover:shadow-lg md:mb-8 lg:mb-5  bg-primary">
+          <Link
+            href={post.hyperlink}
+            key={post._id}
+            className="group w-full md:max-w-[40vw] h-auto cursor-pointer hover:scale-105  transition-all duration-[500ms] ease-in-out rounded overflow-hidden shadow-sm  shadow-primary_dark hover:shadow-accent hover:shadow-lg md:mb-8 lg:mb-5  bg-primary"
+          >
             <Image
               src={urlFor(post.mainImage).url()}
               alt="Project Image"
               width={0}
               height={0}
-              className="w-full z-[-10] h-full group-hover:scale-105 transition-all duration-[2000ms] ease-in-out"
+              className="w-full z-[-10] h-full group-hover:scale-105 transition-all duration-[1000ms] ease-in-out"
               sizes="20vw-100vw"
               objectFit="contain"
             />
@@ -42,8 +42,7 @@ export default function BlogList({ posts }: Props) {
                 </span>
               ))}
             </div>
-            </Link>
-
+          </Link>
         ))}
       </div>
     )
