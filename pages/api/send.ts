@@ -8,10 +8,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { name, email, message } = req.body;
 
+  if (!name || !email || !message)
+    return res.status(400).json({ error: "Please fill all the fields" });
+
   const { data, error } = await resend.emails.send({
     from: "Acme <onboarding@resend.dev>",
     to: "rohitmanivel9@gmail.com",
-    subject: "Hello world",
+    subject: "Contact Form Submission from " + name,
     react: EmailTemplate({ firstName: name, email: email, message: message }),
     text: "Hello world", // Add the 'text' property with a value
   });
