@@ -21,7 +21,7 @@ export default function Navbar({}: Props) {
       {/* Logo */}
       <Link href="/">
         <h1 className="text-primary_dark text-md" id="navName">
-          Rohit Manivel
+          Rm
         </h1>
       </Link>
       {/* Links */}

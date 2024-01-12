@@ -68,14 +68,17 @@ export default function About({}: Props) {
         </div>
 
         {/* About Me */}
-        <div className="flex items-start w-screen min-h-[50vh]  flex-col md:h-screen md:max-h-[100vh] justify-start p-[5vh] gap-[1rem]">
+        <div
+          className="flex items-start w-screen min-h-[50vh]  flex-col md:h-screen md:max-h-[100vh] justify-start p-[5vh] gap-[1rem]"
+          id="aboutMe"
+        >
           <h2 className=" md:text-[1.7rem] lg:text-[2.2rem] xl:text-[3rem] text-tertiary">
             Let me spill something about myself
           </h2>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
-            I am a creative and passionate developer who loves to build
-            interactive experiences for the web based in Arizona, USA. I study
-            MS in Computer Science at{" "}
+            My name is <span className="md:text-[1.3rem] lg:text-[1.5rem] font-medium">Rohit Manivel</span>. I am a creative and passionate developer
+            who loves to build interactive experiences for the web based in
+            Arizona, USA. I study MS in Computer Science at{" "}
             <span className="underline decoration-accent font-medium md:text-[1.3rem] lg:text-[1.5rem] ">
               Arizona State University.
             </span>
@@ -85,9 +88,8 @@ export default function About({}: Props) {
             I have always had a knack for solving problems with code and design.
             My core interests are Front-End development and Mobile Applications
             Development. I don&apos;t necessarily shy away from backend and also
-            to catch the hype train and learn the new frameworks and
-            technologies that will help me expand my software engineering
-            horizon.
+            to catch the hype train to learn the new frameworks and technologies
+            that will help me expand my software engineering horizon.
           </p>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             {" "}

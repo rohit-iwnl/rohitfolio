@@ -18,6 +18,7 @@ export default function Hero({}: Props) {
       filter: "blur(25px)",
     });
 
+
     gsap.to("#heroTextContainer", {
       y: "0%",
       color: "white",
@@ -114,7 +115,7 @@ export default function Hero({}: Props) {
                         },
                       });
                       gsap.to("#navName", {
-                        opacity: 0,
+                        opacity:0,
                         scrollTrigger: {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
