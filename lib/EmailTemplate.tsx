@@ -15,9 +15,8 @@ export const  EmailTemplate: React.FC<EmailTemplateProps> = ({
     <p>Hello Rohit,</p>
     <p>
       {firstName} has submitted the contact form on your website. Their
-      email is <br /> {email}
+      email is {email}
     </p>
-    <br></br>
     <div>
       <p>Here is their message:</p>
       <p>{message}</p>

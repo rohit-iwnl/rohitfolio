@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast"; // updated code
+import { Toaster, toast } from "react-hot-toast"; // updated code
 
 type FormInput = {
   name: string;
@@ -44,6 +44,7 @@ export default function ContactUsForm() {
 
   return (
     <div className="">
+      <Toaster />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mb-10 mt-5 flex w-full flex-col rounded-md bg-transparent"
@@ -67,7 +68,7 @@ export default function ContactUsForm() {
           placeholder="Message for me"
           rows={6}
           required
-          {...register("message")} 
+          {...register("message")}
         />
 
         <button
