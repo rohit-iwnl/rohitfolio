@@ -1,14 +1,15 @@
 import React, { useEffect, useLayoutEffect } from "react";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 
 import SplitType from "split-type";
 
 type Props = {};
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Summary({}: Props) {
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.refresh();
     const summarytextSplit = new SplitType("#summaryText", { types: "words" });
     gsap.to(".word", {
       scrollTrigger: {

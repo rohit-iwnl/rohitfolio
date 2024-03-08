@@ -1,7 +1,9 @@
+"use client";
 import React, { useState, useEffect, use } from "react";
 import { client } from "@/lib/sanity.client";
 import { groq } from "next-sanity";
-import BlogList from "./BlogList";
+import { ProjectsGrid } from "./ProjectsGrid";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 type Props = {};
 
@@ -10,7 +12,6 @@ export default function Projects({}: Props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-
         const data = await client.fetch(groq`
           *[_type == 'post'] {
             ...,
@@ -18,7 +19,7 @@ export default function Projects({}: Props) {
             categories[]->
           } | order(_createdAt desc)
         `);
-        console.log(data);
+        ScrollTrigger.refresh();
 
 
         setProjects(data);
@@ -28,6 +29,7 @@ export default function Projects({}: Props) {
     };
 
     fetchData();
+    ScrollTrigger.refresh();
   }, []);
   return (
     <div className="relative min-h-screen w-screen p-[3vh] pt-[2vh] md:pt-[4vh]" id="projectsContainer">
@@ -39,7 +41,7 @@ export default function Projects({}: Props) {
         Projects
       </h1>
       <div className="pt-4 md:p-5 lg:p-8 xl:p-12">
-        {projects && <BlogList posts={projects} />}
+        {projects && <ProjectsGrid posts={projects} />}
       </div>
     </div>
   );

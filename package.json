@@ -17,9 +17,11 @@
     "@sanity/ui": "^2.0.0-beta",
     "@sanity/vision": "3",
     "@studio-freight/lenis": "^1.0.33",
+    "@tabler/icons-react": "^2.47.0",
     "@vercel/analytics": "^1.1.1",
     "class-variance-authority": "^0.7.0",
-    "framer-motion": "^10.18.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.8",
     "gsap": "^3.12.4",
     "next": "^14.0",
     "next-sanity": "^7.0.7",
@@ -37,7 +39,8 @@
     "sanity": "^3.19",
     "sharp": "^0.33.2",
     "split-type": "^0.3.4",
-    "styled-components": "^6.0"
+    "styled-components": "^6.0",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "^20",

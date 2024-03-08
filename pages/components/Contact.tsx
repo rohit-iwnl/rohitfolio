@@ -115,7 +115,7 @@ export default function Contact({}: Props) {
         <div></div>
       </div>
       <p className="mb-10 w-full flex items-center text-center justify-center bottom-2">
-        Made with ❤️️ and ofcouse Next.js, Tailwind CSS, Sanity and Gsap
+        Made with ❤️️ and ofcouse Next.js, Tailwind CSS, Sanity and GSAP
       </p>
     </div>
   );

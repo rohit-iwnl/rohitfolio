@@ -2,14 +2,15 @@ import gsap from "gsap";
 import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { useEffect } from "react";
-import ScrollTrigger from "gsap/src/ScrollTrigger";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 type Props = {};
 
-gsap.registerPlugin(ScrollTrigger);
 export default function Hero({}: Props) {
   const mainRef = useRef(null);
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.refresh();
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
@@ -17,7 +18,6 @@ export default function Hero({}: Props) {
       ease: "power4.inOut",
       filter: "blur(25px)",
     });
-
 
     gsap.to("#heroTextContainer", {
       y: "0%",
@@ -115,7 +115,7 @@ export default function Hero({}: Props) {
                         },
                       });
                       gsap.to("#navName", {
-                        opacity:0,
+                        opacity: 0,
                         scrollTrigger: {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
