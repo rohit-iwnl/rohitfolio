@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 type Props = {};
 
@@ -21,7 +21,8 @@ export default function About({}: Props) {
       "headbang to eden music",
       "am committing thousands of lines of code saying 'fixed a typo'",
       "am trying to figure out how to make my website look better",
-      "",
+      "Improving PitchForkPilot",
+      ""
     ],
     loop: true,
     typeSpeed: 40,
@@ -30,10 +31,10 @@ export default function About({}: Props) {
   });
   const aboutSection = useRef(null);
   const aboutSectionImage = useRef(null);
-
+  
   return (
     <div
-      ref={aboutSection}
+    ref={aboutSection}
       className="relative min-h-screen w-screen"
       id="aboutContainer"
     >

@@ -62,6 +62,13 @@
     transition: transform 0.5s;
     display: inline-block;
   }
+
+  .font-clash{
+    font-family: var(--font-clashGrotesk);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
 
