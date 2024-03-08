@@ -18,7 +18,7 @@ type Props = {
   posts: Post[];
 };
 
-export function ProjectsGrid({ posts }: Props) {
+export default function ProjectsGrid({ posts }: Props) {
   return (
     posts && (
       <BentoGrid className="max-w-screen md:p-10 mx-auto">
@@ -46,16 +46,3 @@ export function ProjectsGrid({ posts }: Props) {
     )
   );
 }
-const Skeleton = (post: Post) => (
-  <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl">
-    <Image
-      src={urlFor(post.mainImage).url()}
-      alt="Project Image"
-      width={0}
-      height={0}
-      className="w-full z-[-10] h-full group-hover:scale-105 transition-all duration-[1000ms] ease-in-out"
-      sizes="20vw-100vw"
-      objectFit="contain"
-    />
-  </div>
-);
