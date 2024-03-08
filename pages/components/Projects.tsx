@@ -2,7 +2,7 @@
 import React, { useState, useEffect, use } from "react";
 import { client } from "@/lib/sanity.client";
 import { groq } from "next-sanity";
-import { ProjectsGrid } from "./ProjectsGrid";
+import ProjectsGrid from "./ProjectsGrid";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 type Props = {};
