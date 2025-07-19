@@ -11,6 +11,11 @@ export default function Hero({}: Props) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.refresh();
+    
+    // Check if mobile for performance optimization only
+    const isMobile = window.innerWidth < 768;
+    const scrubValue = isMobile ? 1 : true;
+    
     gsap.to("#heroImage", {
       scale: 0.7,
       duration: 2,
@@ -26,6 +31,7 @@ export default function Hero({}: Props) {
       ease: "power4.inOut",
       delay: 0.5,
     });
+    
     gsap.to("#mainContainer", {
       backgroundColor: "#252422",
       duration: 2.5,
@@ -34,7 +40,8 @@ export default function Hero({}: Props) {
         trigger: mainRef.current,
         start: "bottom 70%",
         end: "bottom top",
-        scrub: true,
+        scrub: scrubValue,
+        refreshPriority: 1,
 
         onEnter: () => {
           gsap.to("#navMenuContainer", {
@@ -44,7 +51,8 @@ export default function Hero({}: Props) {
               trigger: mainRef.current,
               start: "bottom 70%",
               end: "bottom top",
-              scrub: true,
+              scrub: scrubValue,
+              refreshPriority: 2,
             },
             ease: "power4.inOut",
           });
@@ -55,7 +63,8 @@ export default function Hero({}: Props) {
               trigger: mainRef.current,
               start: "bottom 70%",
               end: "bottom top",
-              scrub: true,
+              scrub: scrubValue,
+              refreshPriority: 2,
             },
             ease: "power4.inOut",
           });
@@ -69,7 +78,8 @@ export default function Hero({}: Props) {
               trigger: "#summaryContainer",
               start: "top top",
               end: "bottom top",
-              scrub: true,
+              scrub: scrubValue,
+              refreshPriority: 1,
               onLeave: () => {
                 gsap.to("#navContact", {
                   backgroundColor: "#fffcf2",
@@ -78,7 +88,8 @@ export default function Hero({}: Props) {
                     trigger: "#aboutContainer",
                     start: "bottom 70%",
                     end: "bottom top",
-                    scrub: true,
+                    scrub: scrubValue,
+                    refreshPriority: 3,
                   },
                   ease: "power4.inOut",
                 });
@@ -90,7 +101,8 @@ export default function Hero({}: Props) {
                     trigger: "#aboutContainer",
                     start: "bottom 90%",
                     end: "bottom top",
-                    scrub: true,
+                    scrub: scrubValue,
+                    refreshPriority: 1,
                     onLeave: () => {
                       gsap.to("#mainContainer", {
                         backgroundColor: "#fffcf2",
@@ -100,7 +112,8 @@ export default function Hero({}: Props) {
                           trigger: "#toolboxContainer",
                           start: "center top",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 1,
                         },
                       });
                     },
@@ -111,7 +124,8 @@ export default function Hero({}: Props) {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 4,
                         },
                       });
                       gsap.to("#navName", {
@@ -120,7 +134,8 @@ export default function Hero({}: Props) {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 4,
                         },
                       });
                       gsap.to("#navbarContainer", {
@@ -129,25 +144,18 @@ export default function Hero({}: Props) {
                           trigger: "#projectsContainer",
                           start: "bottom 90%",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 4,
                         },
                       });
-                      // gsap.to("#navMenuContainer",{
-                      //   opacity:0,
-                      //   scrollTrigger:{
-                      //     trigger:"#aboutContainer",
-                      //     start:"bottom 90%",
-                      //     end:"bottom top",
-                      //     scrub:true,
-                      //   }
-                      // })
                       gsap.to("#languagesh2", {
                         color: "#EB5E28",
                         scrollTrigger: {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 4,
                         },
                       });
                       gsap.to("#frameworksh2", {
@@ -156,7 +164,8 @@ export default function Hero({}: Props) {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 4,
                         },
                       });
                       gsap.to("#devh2", {
@@ -165,12 +174,39 @@ export default function Hero({}: Props) {
                           trigger: "#aboutContainer",
                           start: "bottom 90%",
                           end: "bottom top",
-                          scrub: true,
+                          scrub: scrubValue,
+                          refreshPriority: 4,
                         },
                       });
                     },
+                    onEnterBack: () => {
+                      // Ensure colors are set correctly when scrolling back up
+                      gsap.set("#mainContainer", { backgroundColor: "#252422" });
+                      gsap.set("#skillSectionHeading", { color: "#403D39" });
+                      gsap.set("#navName", { opacity: 0 });
+                      gsap.set(["#languagesh2", "#frameworksh2", "#devh2"], { color: "#EB5E28" });
+                    },
+                    onLeaveBack: () => {
+                      // Reset colors when scrolling back up past this section
+                      gsap.set("#mainContainer", { backgroundColor: "#fffcf2" });
+                      gsap.set("#skillSectionHeading", { color: "#403D39" });
+                      gsap.set("#navName", { opacity: 1 });
+                      gsap.set(["#languagesh2", "#frameworksh2", "#devh2"], { color: "#252422" });
+                    },
                   },
                 });
+              },
+              onEnterBack: () => {
+                // Ensure background is light when coming back to summary
+                gsap.set("#mainContainer", { backgroundColor: "#fffcf2" });
+                gsap.set("#navMenuContainer", { backgroundColor: "#252422", color: "#fffcf2" });
+                gsap.set("#navContact", { backgroundColor: "#252422", color: "#fffcf2" });
+              },
+              onLeaveBack: () => {
+                // Ensure background is dark when scrolling back up past summary
+                gsap.set("#mainContainer", { backgroundColor: "#252422" });
+                gsap.set("#navMenuContainer", { backgroundColor: "#fffcf2", color: "#252422" });
+                gsap.set("#navContact", { backgroundColor: "#fffcf2", color: "#252422" });
               },
             },
           });
@@ -181,7 +217,8 @@ export default function Hero({}: Props) {
               trigger: "#summaryContainer",
               start: "top top",
               end: "bottom top",
-              scrub: true,
+              scrub: scrubValue,
+              refreshPriority: 2,
             },
             ease: "power4.inOut",
           });
@@ -192,14 +229,33 @@ export default function Hero({}: Props) {
               trigger: "#summaryContainer",
               start: "top top",
               end: "bottom top",
-              scrub: true,
+              scrub: scrubValue,
+              refreshPriority: 2,
             },
             ease: "power4.inOut",
           });
         },
+        onEnterBack: () => {
+          // Ensure colors are correct when scrolling back to hero
+          gsap.set("#mainContainer", { backgroundColor: "#252422" });
+          gsap.set("#navMenuContainer", { backgroundColor: "#fffcf2", color: "#252422" });
+          gsap.set("#navContact", { backgroundColor: "#fffcf2", color: "#252422" });
+        },
+        onLeaveBack: () => {
+          // Reset to initial state when scrolling back up past hero
+          gsap.set("#mainContainer", { backgroundColor: "#fffcf2" });
+          gsap.set("#navMenuContainer", { backgroundColor: "#252422", color: "#fffcf2" });
+          gsap.set("#navContact", { backgroundColor: "#252422", color: "#fffcf2" });
+        },
       },
     });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
+  
   return (
     <div
       className="relative h-screen w-screen z-[1]"
@@ -207,12 +263,12 @@ export default function Hero({}: Props) {
       ref={mainRef}
     >
       {/* Hero Image */}
-      <div className="object-cover w-full h-full absolute flex items-center justify-center z-[-20]">
+      <div className="w-full h-full absolute flex items-center justify-center z-[-20]">
         <Image
           src="/assets/images/hero.webp"
           alt="Photo of me"
-          layout="fill"
-          objectFit="cover"
+          fill
+          className="object-cover"
           id="heroImage"
         />
       </div>

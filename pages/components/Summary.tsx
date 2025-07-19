@@ -10,20 +10,32 @@ export default function Summary({}: Props) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.refresh();
+    
+    // Check if mobile
+    const isMobile = window.innerWidth < 768;
+    
     const summarytextSplit = new SplitType("#summaryText", { types: "words" });
+    
     gsap.to(".word", {
       scrollTrigger: {
         trigger: "#summaryContainer",
         start: "40% 75%",
         end: "center center",
-        scrub: true,
+        scrub: isMobile ? 1 : true, // Add slight lag on mobile for smoother animation
         toggleActions: "play none none reverse",
+        invalidateOnRefresh: true,
       },
       color: "#EB5E28",
       stagger: 0.1,
       duration: 0.5,
     });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
+  
   return (
     <div className="h-screen w-screen relative" id="summaryContainer">
       <div className="h-full w-full flex items-center justify-center p-4 ">

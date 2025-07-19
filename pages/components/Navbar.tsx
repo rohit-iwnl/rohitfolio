@@ -1,18 +1,29 @@
 import Link from "next/link";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 
 type Props = {};
 
 export default function Navbar({}: Props) {
-  useLayoutEffect(() => {
-    gsap.to("#navbarContainer", {
-      y: "0%",
-      duration: 2.5,
-      ease: "power4.inOut",
-      delay: 0.75,
-    });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // Set client flag after hydration
+    setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    // Only run GSAP animation on client side after hydration
+    if (isClient) {
+      gsap.to("#navbarContainer", {
+        y: "0%",
+        duration: 2.5,
+        ease: "power4.inOut",
+        delay: 0.75,
+      });
+    }
+  }, [isClient]);
+
   return (
     <header
       className="fixed top-0 p-6 md:p-8 flex flex-row items-center justify-between w-screen max-h-[4vh] z-[999] transform -translate-y-full"
