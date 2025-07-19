@@ -20,10 +20,15 @@
   }
 
   body{
-    @apply lg:overflow-hidden;
     /* Improve scroll performance on mobile */
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: none;
+  }
+  
+  @media (min-width: 1024px) {
+    body {
+      overflow: hidden;
+    }
   }
 
 
