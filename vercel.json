@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "pages/api/**/*.{js,ts}": {
+      "runtime": "nodejs22.x"
+    }
+  },
+  "buildCommand": "next build"
+} 
