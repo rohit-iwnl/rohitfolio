@@ -43,6 +43,9 @@ export default function Navbar({}: Props) {
         <Link href="#projectsContainer" id="navProjects">
           <p className="text-primary_dark font-medium">Projects</p>
         </Link>
+        <Link href="/blog" id="navBlog">
+          <p className="text-primary_dark font-medium">Blog</p>
+        </Link>
         <Link href="#contactMe">
           <p
             className="cursor-pointer bg-primary_dark text-primary rounded-full hover:bg-accent hover:text-primary transition-all duration-300 ease-in-out hover:font-semibold hover:px-3 p-2"
