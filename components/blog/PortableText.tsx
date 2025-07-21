@@ -5,9 +5,9 @@ import {
 } from "@portabletext/react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity.client";
-import { JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function CustomPortableText({
   className,
@@ -99,7 +99,7 @@ export default function CustomPortableText({
   };
 
   return (
-    <div className={["prose max-w-2xl mx-auto", jetbrainsMono.className, className].filter(Boolean).join(" ")}>
+    <div className={["prose max-w-2xl mx-auto", inter.className, className].filter(Boolean).join(" ")}>
       <PortableText components={components} value={value} />
     </div>
   );

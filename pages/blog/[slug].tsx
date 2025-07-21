@@ -3,9 +3,10 @@ import { type PortableTextBlock } from "@portabletext/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Suspense, useEffect } from "react";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] });
 
 import Avatar from "../../components/blog/Avatar";
 import CoverImage from "../../components/blog/CoverImage";
@@ -40,14 +41,14 @@ export default function PostPage({ post, settings, allPosts }: PostPageProps) {
 
   if (router.isFallback || !post?._id) {
     return (
-      <div className={`min-h-screen bg-primary flex items-center justify-center ${jetbrainsMono.className}`}>
+      <div className={`min-h-screen bg-primary flex items-center justify-center ${inter.className}`}>
         <div>Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className={`min-h-screen bg-primary ${jetbrainsMono.className}`}>
+    <div className={`min-h-screen bg-primary ${inter.className}`}>
       <div className="container mx-auto px-5">
         <h2 className={`mb-16 mt-10 text-3xl font-bold leading-tight tracking-tight md:text-5xl md:tracking-tighter ${jetbrainsMono.className}`}>
           <Link href="/blog" className="hover:underline">
@@ -58,26 +59,13 @@ export default function PostPage({ post, settings, allPosts }: PostPageProps) {
           <h1 className={`text-balance mb-12 text-7xl font-bold leading-tight tracking-tighter md:text-8xl md:leading-none lg:text-9xl ${jetbrainsMono.className}`}>
             {post.title}
           </h1>
-          <div className="hidden md:mb-12 md:block">
-            {post.author && (
-              <Avatar name={post.author.name} picture={post.author.picture} />
-            )}
-          </div>
+                  <div className="mb-8">
+          <DateComponent dateString={post.date} />
+        </div>
           <div className="mb-8 sm:mx-0 md:mb-16">
             <CoverImage image={post.coverImage} priority />
           </div>
-          <div className="mx-auto max-w-2xl">
-            <div className="mb-6 block md:hidden">
-              {post.author && (
-                <Avatar name={post.author.name} picture={post.author.picture} />
-              )}
-            </div>
-            <div className="mb-6 text-lg">
-              <div className="mb-4 text-lg">
-                <DateComponent dateString={post.date} />
-              </div>
-            </div>
-          </div>
+          
           {post.content?.length && (
             <PortableText
               className="mx-auto max-w-2xl"
