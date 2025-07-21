@@ -29,15 +29,12 @@ function Intro(props: { title: string | null | undefined; description: any }) {
     : demo.description;
   return (
     <section className="mt-16 mb-16 flex flex-col items-center lg:mb-12 lg:flex-row lg:justify-between">
-      <h1 className={`text-balance text-7xl md:text-8xl lg:text-9xl font-bold leading-tight tracking-tighter lg:pr-8 ${jetbrainsMono.className}`}>
+      <h1 className={`text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tighter lg:pr-8 ${jetbrainsMono.className}`}>
         {title || demo.title}
       </h1>
-      <h2 className={`text-pretty mt-5 text-center text-lg lg:pl-8 lg:text-left text-gray-600 ${jetbrainsMono.className}`}>
-        <PortableText
-          className="prose-lg"
-          value={description?.length ? description : demo.description}
-        />
-      </h2>
+              <h2 className={`text-pretty mt-5 text-center text-xs sm:text-sm md:text-base lg:pl-8 lg:text-left text-gray-600 ${jetbrainsMono.className}`}>
+          {description?.length ? description[0]?.children[0]?.text : "Welcome to my blog where I share insights about development, technology, and my journey as a developer."}
+        </h2>
     </section>
   );
 }
@@ -61,7 +58,7 @@ function HeroPost({
             <DateComponent dateString={date} />
           </div>
           <h3 className="text-pretty mb-2 leading-tight font-bold" >
-            <Link href={`/blog/${slug.current}`} className="hover:underline text-6xl md:text-7xl lg:text-7xl">
+            <Link href={`/blog/${slug.current}`} className="hover:underline text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               {title}
             </Link>
           </h3>
@@ -91,7 +88,18 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
   useEffect(() => {
     // Override the global overflow: hidden for blog pages
     document.body.style.overflow = 'auto';
+    document.body.style.overflowX = 'hidden';
     document.documentElement.style.overflow = 'auto';
+    document.documentElement.style.overflowX = 'hidden';
+    
+    // Force mobile viewport to allow scrolling
+    document.body.style.height = 'auto';
+    document.body.style.minHeight = '100vh';
+    document.documentElement.style.height = 'auto';
+    
+    // Add specific mobile scroll fixes
+    (document.body.style as any).webkitOverflowScrolling = 'touch';
+    (document.body.style as any).overscrollBehavior = 'none';
     
     // Cleanup function to restore original if needed
     return () => {
@@ -100,8 +108,8 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
   }, []);
   
   return (
-    <div className={`min-h-screen bg-primary ${inter.className}`}>
-      <div className="container mx-auto px-5">
+    <div className={`min-h-screen bg-primary ${inter.className}`} style={{ overflow: 'auto', height: 'auto' }}>
+      <div className="container mx-auto px-4 sm:px-5">
         <Intro title={settings?.title} description={settings?.description} />
         {heroPost ? (
           <HeroPost
@@ -132,7 +140,7 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
         {heroPost?._id && allPosts?.length > 1 && (
           <aside>
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-6xl font-bold leading-tight tracking-tighter md:text-7xl">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter">
                 More Stories
               </h2>
               <LayoutToggle currentLayout={layout} />
@@ -153,11 +161,11 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
                           <div className="mb-2 text-sm text-gray-500 uppercase tracking-wide">
                             <DateComponent dateString={date} />
                           </div>
-                          <h3 className="text-balance mb-3 leading-tight font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: jetbrainsMono.style.fontFamily }}>
-                            <Link href={`/blog/${slug.current}`} className="hover:underline transition-colors duration-200">
-                              {title}
-                            </Link>
-                          </h3>
+                                                  <h3 className="text-balance mb-3 leading-tight font-bold" style={{ fontSize: 'clamp(1.25rem, 4vw, 2.5rem)', fontFamily: jetbrainsMono.style.fontFamily }}>
+                          <Link href={`/blog/${slug.current}`} className="hover:underline transition-colors duration-200">
+                            {title}
+                          </Link>
+                        </h3>
                           {excerpt && (
                             <p className="text-pretty text-base md:text-lg leading-relaxed text-gray-600">
                               {excerpt}
