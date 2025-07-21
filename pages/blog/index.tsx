@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense, useEffect } from "react";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({ 
@@ -15,6 +15,8 @@ import CoverImage from "../../components/blog/CoverImage";
 import DateComponent from "../../components/blog/DateComponent";
 import MoreStories from "../../components/blog/MoreStories";
 import PortableText from "../../components/blog/PortableText";
+import LayoutToggle from "../../components/blog/LayoutToggle";
+import BlogPostList from "../../components/blog/BlogPostList";
 
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
@@ -30,7 +32,7 @@ function Intro(props: { title: string | null | undefined; description: any }) {
       <h1 className={`text-balance text-7xl md:text-8xl lg:text-9xl font-bold leading-tight tracking-tighter lg:pr-8 ${jetbrainsMono.className}`}>
         {title || demo.title}
       </h1>
-      <h2 className="text-pretty mt-5 text-center text-lg lg:pl-8 lg:text-left text-gray-600">
+      <h2 className={`text-pretty mt-5 text-center text-lg lg:pl-8 lg:text-left text-gray-600 ${jetbrainsMono.className}`}>
         <PortableText
           className="prose-lg"
           value={description?.length ? description : demo.description}
@@ -78,9 +80,10 @@ interface BlogProps {
   settings: any;
   heroPost: any;
   allPosts: any[];
+  layout?: 'grid' | 'list';
 }
 
-export default function Blog({ settings, heroPost, allPosts }: BlogProps) {
+export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: BlogProps) {
   // Debug logging
   console.log("Blog data:", { settings, heroPost, allPosts: allPosts?.length });
 
@@ -128,40 +131,49 @@ export default function Blog({ settings, heroPost, allPosts }: BlogProps) {
         )}
         {heroPost?._id && allPosts?.length > 1 && (
           <aside>
-            <h2 className="mb-8 text-6xl font-bold leading-tight tracking-tighter md:text-7xl">
-              More Stories
-            </h2>
-            <div className="mb-32 space-y-12">
-              {allPosts.filter(post => post._id !== heroPost._id).map((post: any) => {
-                const { _id, title, slug, coverImage, excerpt, date } = post;
-                return (
-                  <article key={_id} className="border-b border-gray-200 pb-12 last:border-b-0">
-                    <div className="md:flex md:gap-6 items-start">
-                      <div className="md:w-2/5 mb-3 md:mb-0 md:flex-shrink-0">
-                        <Link href={`/blog/${slug.current}`} className="group block">
-                          <CoverImage image={coverImage} priority={false} />
-                        </Link>
-                      </div>
-                      <div className="md:w-3/5 md:pl-2">
-                        <div className="mb-2 text-sm text-gray-500 uppercase tracking-wide">
-                          <DateComponent dateString={date} />
-                        </div>
-                        <h3 className="text-balance mb-3 leading-tight font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: jetbrainsMono.style.fontFamily }}>
-                          <Link href={`/blog/${slug.current}`} className="hover:underline transition-colors duration-200">
-                            {title}
-                          </Link>
-                        </h3>
-                        {excerpt && (
-                          <p className="text-pretty text-base md:text-lg leading-relaxed text-gray-600">
-                            {excerpt}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-6xl font-bold leading-tight tracking-tighter md:text-7xl">
+                More Stories
+              </h2>
+              <LayoutToggle currentLayout={layout} />
             </div>
+            {layout === 'grid' ? (
+              <div className="mb-32 space-y-12">
+                {allPosts.filter(post => post._id !== heroPost._id).map((post: any) => {
+                  const { _id, title, slug, coverImage, excerpt, date } = post;
+                  return (
+                    <article key={_id} className="border-b border-gray-200 pb-12 last:border-b-0">
+                      <div className="md:flex md:gap-6 items-start">
+                        <div className="md:w-2/5 mb-3 md:mb-0 md:flex-shrink-0">
+                          <Link href={`/blog/${slug.current}`} className="group block">
+                            <CoverImage image={coverImage} priority={false} />
+                          </Link>
+                        </div>
+                        <div className="md:w-3/5 md:pl-2">
+                          <div className="mb-2 text-sm text-gray-500 uppercase tracking-wide">
+                            <DateComponent dateString={date} />
+                          </div>
+                          <h3 className="text-balance mb-3 leading-tight font-bold" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: jetbrainsMono.style.fontFamily }}>
+                            <Link href={`/blog/${slug.current}`} className="hover:underline transition-colors duration-200">
+                              {title}
+                            </Link>
+                          </h3>
+                          {excerpt && (
+                            <p className="text-pretty text-base md:text-lg leading-relaxed text-gray-600">
+                              {excerpt}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="mb-32">
+                <BlogPostList posts={allPosts.filter(post => post._id !== heroPost._id)} />
+              </div>
+            )}
           </aside>
         )}
       </div>
@@ -169,7 +181,10 @@ export default function Blog({ settings, heroPost, allPosts }: BlogProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { query } = context;
+  const layout = (query.view === 'list') ? 'list' : 'grid';
+  
   const [settings, heroPost, allPosts] = await Promise.all([
     sanityFetch({
       query: settingsQuery,
@@ -183,7 +198,7 @@ export const getStaticProps: GetStaticProps = async () => {
       settings,
       heroPost,
       allPosts,
+      layout,
     },
-    revalidate: 60,
   };
 }; 
