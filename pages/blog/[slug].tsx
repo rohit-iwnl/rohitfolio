@@ -18,6 +18,7 @@ import PortableText from "../../components/blog/PortableText";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { postQuery, settingsQuery, allPostsQuery } from "@/sanity/lib/queries";
+import { urlFor } from "@/lib/sanity.client";
 
 interface PostPageProps {
   post: any;
@@ -50,8 +51,8 @@ export default function PostPage({ post, settings, allPosts }: PostPageProps) {
 
   // Generate OpenGraph image URL
   const ogImageUrl = post.coverImage 
-    ? `${post.coverImage.asset.url}?w=1200&h=630&fit=crop&crop=center`
-    : '/api/og?title=' + encodeURIComponent(post.title);
+    ? urlFor(post.coverImage).width(1200).height(630).fit('crop').crop('center').url()
+    : `https://via.placeholder.com/1200x630/000000/ffffff?text=${encodeURIComponent(post.title)}`;
 
   return (
     <>

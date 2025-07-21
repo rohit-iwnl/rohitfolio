@@ -22,6 +22,7 @@ import BlogPostList from "../../components/blog/BlogPostList";
 import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { heroQuery, settingsQuery, allPostsQuery } from "@/sanity/lib/queries";
+import { urlFor } from "@/lib/sanity.client";
 
 function Intro(props: { title: string | null | undefined; description: any }) {
   const title = props.title || demo.title;
@@ -117,7 +118,7 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
         {/* OpenGraph Meta Tags */}
         <meta property="og:title" content={settings?.title || demo.title} />
         <meta property="og:description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
-        <meta property="og:image" content={heroPost?.coverImage ? `${heroPost.coverImage.asset.url}?w=1200&h=630&fit=crop&crop=center` : '/api/og?title=' + encodeURIComponent(settings?.title || demo.title)} />
+        <meta property="og:image" content={heroPost?.coverImage ? urlFor(heroPost.coverImage).width(1200).height(630).fit('crop').crop('center').url() : `https://via.placeholder.com/1200x630/000000/ffffff?text=${encodeURIComponent(settings?.title || demo.title)}`} />
         <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com'}/blog`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={settings?.title || demo.title} />
@@ -126,7 +127,7 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={settings?.title || demo.title} />
         <meta name="twitter:description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
-        <meta name="twitter:image" content={heroPost?.coverImage ? `${heroPost.coverImage.asset.url}?w=1200&h=630&fit=crop&crop=center` : '/api/og?title=' + encodeURIComponent(settings?.title || demo.title)} />
+        <meta name="twitter:image" content={heroPost?.coverImage ? urlFor(heroPost.coverImage).width(1200).height(630).fit('crop').crop('center').url() : `https://via.placeholder.com/1200x630/000000/ffffff?text=${encodeURIComponent(settings?.title || demo.title)}`} />
       </Head>
       
       <div className={`min-h-screen bg-primary ${inter.className}`} style={{ overflow: 'auto', height: 'auto' }}>
