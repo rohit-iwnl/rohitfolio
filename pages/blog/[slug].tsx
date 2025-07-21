@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Suspense, useEffect } from "react";
 import { JetBrains_Mono, Inter } from "next/font/google";
+import Head from "next/head";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 const inter = Inter({ subsets: ['latin'] });
@@ -47,9 +48,41 @@ export default function PostPage({ post, settings, allPosts }: PostPageProps) {
     );
   }
 
+  // Generate OpenGraph image URL
+  const ogImageUrl = post.coverImage 
+    ? `${post.coverImage.asset.url}?w=1200&h=630&fit=crop&crop=center`
+    : '/api/og?title=' + encodeURIComponent(post.title);
+
   return (
-    <div className={`min-h-screen bg-primary ${inter.className}`}>
-      <div className="container mx-auto px-5">
+    <>
+      <Head>
+        <title>{post.title} | {settings?.title || demo.title}</title>
+        <meta name="description" content={post.excerpt || "Read this blog post"} />
+        
+        {/* OpenGraph Meta Tags */}
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt || "Read this blog post"} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com'}/blog/${post.slug.current}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content={settings?.title || demo.title} />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt || "Read this blog post"} />
+        <meta name="twitter:image" content={ogImageUrl} />
+        
+        {/* Additional Meta Tags */}
+        <meta name="author" content={post.author?.name || "Rohit Manivel"} />
+        <meta property="article:published_time" content={post.publishedAt} />
+        {post.categories && post.categories.length > 0 && (
+          <meta property="article:section" content={post.categories[0].title} />
+        )}
+      </Head>
+      
+      <div className={`min-h-screen bg-primary ${inter.className}`}>
+        <div className="container mx-auto px-5">
         <h2 className={`mb-16 mt-10 text-3xl font-bold leading-tight tracking-tight md:text-5xl md:tracking-tighter ${jetbrainsMono.className}`}>
           <Link href="/blog" className="hover:underline">
             {settings?.title || demo.title}
@@ -80,8 +113,9 @@ export default function PostPage({ post, settings, allPosts }: PostPageProps) {
           </h2>
           <MoreStories posts={allPosts.filter((p: any) => p._id !== post._id).slice(0, 2)} />
         </aside>
+              </div>
       </div>
-    </div>
+    </>
   );
 }
 

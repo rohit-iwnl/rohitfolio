@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense, useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { JetBrains_Mono, Inter } from "next/font/google";
+import Head from "next/head";
 
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'],
@@ -108,8 +109,28 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
   }, []);
   
   return (
-    <div className={`min-h-screen bg-primary ${inter.className}`} style={{ overflow: 'auto', height: 'auto' }}>
-      <div className="container mx-auto px-4 sm:px-5">
+    <>
+      <Head>
+        <title>{settings?.title || demo.title}</title>
+        <meta name="description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
+        
+        {/* OpenGraph Meta Tags */}
+        <meta property="og:title" content={settings?.title || demo.title} />
+        <meta property="og:description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
+        <meta property="og:image" content={heroPost?.coverImage ? `${heroPost.coverImage.asset.url}?w=1200&h=630&fit=crop&crop=center` : '/api/og?title=' + encodeURIComponent(settings?.title || demo.title)} />
+        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com'}/blog`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={settings?.title || demo.title} />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={settings?.title || demo.title} />
+        <meta name="twitter:description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
+        <meta name="twitter:image" content={heroPost?.coverImage ? `${heroPost.coverImage.asset.url}?w=1200&h=630&fit=crop&crop=center` : '/api/og?title=' + encodeURIComponent(settings?.title || demo.title)} />
+      </Head>
+      
+      <div className={`min-h-screen bg-primary ${inter.className}`} style={{ overflow: 'auto', height: 'auto' }}>
+        <div className="container mx-auto px-4 sm:px-5">
         <Intro title={settings?.title} description={settings?.description} />
         {heroPost ? (
           <HeroPost
@@ -184,8 +205,9 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
             )}
           </aside>
         )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
