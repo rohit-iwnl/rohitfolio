@@ -180,33 +180,93 @@ export default function Hero({}: Props) {
                       });
                     },
                     onEnterBack: () => {
-                      // Ensure colors are set correctly when scrolling back up
-                      gsap.set("#mainContainer", { backgroundColor: "#252422" });
-                      gsap.set("#skillSectionHeading", { color: "#403D39" });
-                      gsap.set("#navName", { opacity: 0 });
-                      gsap.set(["#languagesh2", "#frameworksh2", "#devh2"], { color: "#EB5E28" });
+                      // Smooth transition when scrolling back to this section
+                      gsap.to("#mainContainer", { 
+                        backgroundColor: "#252422",
+                        duration: 0.8,
+                        ease: "power2.inOut"
+                      });
+                      gsap.to("#skillSectionHeading", { 
+                        color: "#403D39",
+                        duration: 0.6,
+                        ease: "power2.inOut"
+                      });
+                      gsap.to("#navName", { 
+                        opacity: 0,
+                        duration: 0.6,
+                        ease: "power2.inOut"
+                      });
+                      gsap.to(["#languagesh2", "#frameworksh2", "#devh2"], { 
+                        color: "#EB5E28",
+                        duration: 0.6,
+                        ease: "power2.inOut"
+                      });
                     },
                     onLeaveBack: () => {
-                      // Reset colors when scrolling back up past this section
-                      gsap.set("#mainContainer", { backgroundColor: "#fffcf2" });
-                      gsap.set("#skillSectionHeading", { color: "#403D39" });
-                      gsap.set("#navName", { opacity: 1 });
-                      gsap.set(["#languagesh2", "#frameworksh2", "#devh2"], { color: "#252422" });
+                      // Smooth transition when scrolling back up past this section
+                      gsap.to("#mainContainer", { 
+                        backgroundColor: "#fffcf2",
+                        duration: 0.8,
+                        ease: "power2.inOut"
+                      });
+                      gsap.to("#skillSectionHeading", { 
+                        color: "#403D39",
+                        duration: 0.6,
+                        ease: "power2.inOut"
+                      });
+                      gsap.to("#navName", { 
+                        opacity: 1,
+                        duration: 0.6,
+                        ease: "power2.inOut"
+                      });
+                      gsap.to(["#languagesh2", "#frameworksh2", "#devh2"], { 
+                        color: "#252422",
+                        duration: 0.6,
+                        ease: "power2.inOut"
+                      });
                     },
                   },
                 });
               },
               onEnterBack: () => {
-                // Ensure background is light when coming back to summary
-                gsap.set("#mainContainer", { backgroundColor: "#fffcf2" });
-                gsap.set("#navMenuContainer", { backgroundColor: "#252422", color: "#fffcf2" });
-                gsap.set("#navContact", { backgroundColor: "#252422", color: "#fffcf2" });
+                // Smooth transition when coming back to summary
+                gsap.to("#mainContainer", { 
+                  backgroundColor: "#fffcf2",
+                  duration: 0.8,
+                  ease: "power2.inOut"
+                });
+                gsap.to("#navMenuContainer", { 
+                  backgroundColor: "#252422", 
+                  color: "#fffcf2",
+                  duration: 0.8,
+                  ease: "power2.inOut"
+                });
+                gsap.to("#navContact", { 
+                  backgroundColor: "#252422", 
+                  color: "#fffcf2",
+                  duration: 0.8,
+                  ease: "power2.inOut"
+                });
               },
               onLeaveBack: () => {
-                // Ensure background is dark when scrolling back up past summary
-                gsap.set("#mainContainer", { backgroundColor: "#252422" });
-                gsap.set("#navMenuContainer", { backgroundColor: "#fffcf2", color: "#252422" });
-                gsap.set("#navContact", { backgroundColor: "#fffcf2", color: "#252422" });
+                // Smooth transition when scrolling back up past summary
+                gsap.to("#mainContainer", { 
+                  backgroundColor: "#252422",
+                  duration: 0.8,
+                  ease: "power2.inOut"
+                });
+                gsap.to("#navMenuContainer", { 
+                  backgroundColor: "#fffcf2", 
+                  color: "#252422",
+                  duration: 0.8,
+                  ease: "power2.inOut"
+                });
+                gsap.to("#navContact", { 
+                  backgroundColor: "#fffcf2", 
+                  color: "#252422",
+                  duration: 0.8,
+                  ease: "power2.inOut"
+                });
               },
             },
           });
@@ -236,16 +296,44 @@ export default function Hero({}: Props) {
           });
         },
         onEnterBack: () => {
-          // Ensure colors are correct when scrolling back to hero
-          gsap.set("#mainContainer", { backgroundColor: "#252422" });
-          gsap.set("#navMenuContainer", { backgroundColor: "#fffcf2", color: "#252422" });
-          gsap.set("#navContact", { backgroundColor: "#fffcf2", color: "#252422" });
+          // Smooth transition when scrolling back to hero
+          gsap.to("#mainContainer", { 
+            backgroundColor: "#252422", 
+            duration: 0.8,
+            ease: "power2.inOut"
+          });
+          gsap.to("#navMenuContainer", { 
+            backgroundColor: "#fffcf2", 
+            color: "#252422",
+            duration: 0.8,
+            ease: "power2.inOut"
+          });
+          gsap.to("#navContact", { 
+            backgroundColor: "#fffcf2", 
+            color: "#252422",
+            duration: 0.8,
+            ease: "power2.inOut"
+          });
         },
         onLeaveBack: () => {
-          // Reset to initial state when scrolling back up past hero
-          gsap.set("#mainContainer", { backgroundColor: "#fffcf2" });
-          gsap.set("#navMenuContainer", { backgroundColor: "#252422", color: "#fffcf2" });
-          gsap.set("#navContact", { backgroundColor: "#252422", color: "#fffcf2" });
+          // Smooth transition when scrolling back up past hero
+          gsap.to("#mainContainer", { 
+            backgroundColor: "#fffcf2",
+            duration: 0.8,
+            ease: "power2.inOut"
+          });
+          gsap.to("#navMenuContainer", { 
+            backgroundColor: "#252422", 
+            color: "#fffcf2",
+            duration: 0.8,
+            ease: "power2.inOut"
+          });
+          gsap.to("#navContact", { 
+            backgroundColor: "#252422", 
+            color: "#fffcf2",
+            duration: 0.8,
+            ease: "power2.inOut"
+          });
         },
       },
     });
