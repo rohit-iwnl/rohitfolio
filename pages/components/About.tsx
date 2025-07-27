@@ -27,7 +27,7 @@ export default function About({}: Props) {
     typeSpeed: 40,
     deleteSpeed: 50,
     delaySpeed: 1000,
-  });
+  })
   const aboutSection = useRef(null);
   const aboutSectionImage = useRef(null);
   
