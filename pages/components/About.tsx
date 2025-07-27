@@ -12,16 +12,15 @@ type Props = {};
 export default function About({}: Props) {
   const [text] = useTypewriter({
     words: [
+      "building syncwave, the all in one AI native app for students",
       "skateboard around the city",
       "swim",
       "solve a lot of cubes",
       "learn how to center a div",
       "gulp down a cup of coffee and sit down to code my side projects",
       'watch "Silicon Valley" for the 100th time',
-      "headbang to eden music",
       "am committing thousands of lines of code saying 'fixed a typo'",
       "am trying to figure out how to make my website look better",
-      "Improving PitchForkPilot",
       ""
     ],
     loop: true,
@@ -81,26 +80,21 @@ export default function About({}: Props) {
             <span className="md:text-[1.3rem] lg:text-[1.5rem] font-medium">
               Rohit Manivel
             </span>
-            . I am a creative and passionate developer who loves to build
-            interactive experiences for the web based in Arizona, USA. I study
-            MS in Computer Science at{" "}
+            . I am a software engineer based in Arizona, USA. Graduated Masters in Computer Science from{" "}
             <span className="underline decoration-accent font-medium md:text-[1.3rem] lg:text-[1.5rem] ">
               Arizona State University.
             </span>
-            &nbsp;Go Sun Devils!
+            &nbsp;Go Devils!
           </p>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             I have always had a knack for solving problems with code and design.
-            My core interests are Front-End development and Mobile Applications
-            Development. I don&apos;t necessarily shy away from backend and also
-            to catch the hype train to learn the new frameworks and technologies
-            that will help me expand my software engineering horizon.
+            I specialize in building full-stack web applications with a focus on user experience and performance.
+            I am currently working on an all in one AI native app for students, an innovative platform designed to streamline and centralize all student needs, from academic resources to collaborative tools.
+            I love to constantly seek out the latest frameworks and technologies to expand my expertise and deliver exceptional software engineering results.
           </p>
           <p className="leading-relaxed md:text-[1.3rem] lg:text-[1.5rem] ">
             {" "}
-            I interned at Rubrik Inc. for 5 months as Customer Success Engineer
-            back in Bengaluru, India . I am currently on the lookout of software
-            engineering Summer 2024 interships opportunities. Please do reach
+            I am currently on the lookout of software engineering opportunities. Please do reach
             out to me if you think I&apos;ll be a good fit in your team. Also I
             would never say no to referrals{" "}
             <span className="md:text-[1.3rem] lg:text-[1.5rem]">😉</span>

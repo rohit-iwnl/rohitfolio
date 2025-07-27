@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GetServerSideProps } from "next";
 import Lenis from "@studio-freight/lenis";
 import Hero from "./components/Hero";
 import { clashGrotesk, generalSans } from "@/public/utils/FontLoader";
@@ -8,12 +9,36 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Toolbox from "./components/Toolbox";
 import Contact from "./components/Contact";
+import BlogPage from "./components/BlogPage";
+import { sanityFetch } from '@/sanity/lib/fetch';
+import { allPostsQuery } from '@/sanity/lib/queries';
 
 const DynamicSummary = dynamic(() => import("@/pages/components/Summary"), {
   ssr: false,
 });
 
-export default function Home() {
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  excerpt?: string;
+  date: string;
+  coverImage?: {
+    asset?: {
+      _ref: string;
+      _type: string;
+    };
+    alt?: string;
+  };
+}
+
+interface HomeProps {
+  posts: BlogPost[];
+}
+
+export default function Home({ posts }: HomeProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -58,8 +83,30 @@ export default function Home() {
         <Toolbox />
         <Projects />
 
+        <BlogPage posts={posts} />
         <Contact />
       </main>
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  try {
+    const posts = await sanityFetch<BlogPost[]>({
+      query: allPostsQuery,
+    });
+
+    return {
+      props: {
+        posts: posts || [],
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching blog posts:', error);
+    return {
+      props: {
+        posts: [],
+      },
+    };
+  }
+};

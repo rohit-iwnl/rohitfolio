@@ -44,8 +44,7 @@ export default function Summary({}: Props) {
             className=" leading-normal  text-secondary max-h-full text-[10vw] md:text-[8vw] lg:text-[7vw] xl:text-[6vw] 2xl:text-[6vw]"
             id="summaryText"
           >
-            I&apos;m a CS student at ASU. I solve problems with code and design.
-            I also create interactive experiences for the web.
+            I&apos;m a CS grad from ASU. I solve problems with code and design. Currenly building an all in one AI app for students.
           </p>
         </div>
       </div>
