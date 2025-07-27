@@ -12,7 +12,7 @@ type Props = {};
 export default function About({}: Props) {
   const [text] = useTypewriter({
     words: [
-      "building syncwave, the all in one AI native app for students",
+      "am building syncwave, the all in one AI native app for students",
       "skateboard around the city",
       "swim",
       "solve a lot of cubes",

@@ -104,18 +104,19 @@ export default function Hero({}: Props) {
                     scrub: scrubValue,
                     refreshPriority: 1,
                     onLeave: () => {
-                      gsap.to("#mainContainer", {
-                        backgroundColor: "#fffcf2",
-                        duration: 2.5,
-                        ease: "power4.inOut",
-                        scrollTrigger: {
-                          trigger: "#toolboxContainer",
-                          start: "center top",
-                          end: "bottom top",
-                          scrub: scrubValue,
-                          refreshPriority: 1,
-                        },
-                      });
+                                      gsap.to("#mainContainer", {
+                  backgroundColor: "#fffcf2",
+                  duration: 2.5,
+                  ease: "power4.inOut",
+                  scrollTrigger: {
+                    trigger: "#toolboxContainer",
+                    start: "center top",
+                    end: "bottom top",
+                    scrub: scrubValue,
+                    refreshPriority: 1,
+                  },
+                });
+
                     },
                     onEnter: () => {
                       gsap.to("#skillSectionHeading", {
@@ -148,6 +149,7 @@ export default function Hero({}: Props) {
                           refreshPriority: 4,
                         },
                       });
+
                       gsap.to("#languagesh2", {
                         color: "#EB5E28",
                         scrollTrigger: {
@@ -335,6 +337,18 @@ export default function Hero({}: Props) {
             ease: "power2.inOut"
           });
         },
+      },
+    });
+
+    // Standalone animation for skillSectionHeading - starts at end of about container
+    gsap.to("#skillSectionHeading", {
+      color: "#FFFCF2",
+      scrollTrigger: {
+        trigger: "#aboutContainer",
+        start: "bottom 90%",
+        end: "bottom top",
+        scrub: scrubValue,
+        refreshPriority: 5,
       },
     });
 
