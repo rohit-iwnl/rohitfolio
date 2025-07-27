@@ -9,6 +9,10 @@ const navLinks = [
     sectionId: "aboutContainer",
   },
   {
+    title: "Work",
+    sectionId: "workExperienceContainer",
+  },
+  {
     title: "Projects",
     sectionId: "projectsContainer",
   },
