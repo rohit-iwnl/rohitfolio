@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Toolbox from "./components/Toolbox";
+import WorkExperience from "./components/WorkExperience";
 import Contact from "./components/Contact";
 import BlogPage from "./components/BlogPage";
 import { sanityFetch } from '@/sanity/lib/fetch';
@@ -81,6 +82,7 @@ export default function Home({ posts }: HomeProps) {
         <DynamicSummary />
         <About />
         <Toolbox />
+        <WorkExperience />
         <Projects />
 
         <BlogPage posts={posts} />
