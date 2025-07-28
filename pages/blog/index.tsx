@@ -112,22 +112,28 @@ export default function Blog({ settings, heroPost, allPosts, layout = 'grid' }: 
   return (
     <>
       <Head>
-        <title>{settings?.title || demo.title}</title>
-        <meta name="description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
+        <title>{settings?.title || "Rohit's Blog"}</title>
+        <meta name="description" content="Welcome to Rohit's blog where I share insights about development, technology, AI, and my journey as a software engineer." />
         
         {/* OpenGraph Meta Tags */}
-        <meta property="og:title" content={settings?.title || demo.title} />
-        <meta property="og:description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
-        <meta property="og:image" content={heroPost?.coverImage ? urlFor(heroPost.coverImage).width(1200).height(630).fit('crop').crop('center').url() : `https://via.placeholder.com/1200x630/000000/ffffff?text=${encodeURIComponent(settings?.title || demo.title)}`} />
-        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com'}/blog`} />
+        <meta property="og:title" content={`${settings?.title || "Rohit's Blog"} - Technical Insights & Development Journey`} />
+        <meta property="og:description" content="Welcome to Rohit's blog where I share insights about development, technology, AI, and my journey as a software engineer." />
+        <meta property="og:image" content={heroPost?.coverImage ? urlFor(heroPost.coverImage).width(1200).height(630).fit('crop').crop('center').url() : "https://rohitmanivel.com/assets/images/blog-og.webp"} />
+        <meta property="og:url" content="https://rohitmanivel.com/blog" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content={settings?.title || demo.title} />
+        <meta property="og:site_name" content="Rohitfolio" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={settings?.title || demo.title} />
-        <meta name="twitter:description" content="Welcome to my blog where I share insights about development, technology, and my journey as a developer." />
-        <meta name="twitter:image" content={heroPost?.coverImage ? urlFor(heroPost.coverImage).width(1200).height(630).fit('crop').crop('center').url() : `https://via.placeholder.com/1200x630/000000/ffffff?text=${encodeURIComponent(settings?.title || demo.title)}`} />
+        <meta name="twitter:title" content={`${settings?.title || "Rohit's Blog"} - Technical Insights & Development Journey`} />
+        <meta name="twitter:description" content="Welcome to Rohit's blog where I share insights about development, technology, AI, and my journey as a software engineer." />
+        <meta name="twitter:image" content={heroPost?.coverImage ? urlFor(heroPost.coverImage).width(1200).height(630).fit('crop').crop('center').url() : "https://rohitmanivel.com/assets/images/blog-og.webp"} />
+        <meta name="twitter:image:alt" content="Rohit's Blog - Technical Articles and Insights" />
+        
+        {/* Additional Blog SEO */}
+        <meta name="keywords" content="Rohit Manivel blog, software development, programming, web development, AI, machine learning, tech insights" />
+        <link rel="canonical" href="https://rohitmanivel.com/blog" />
       </Head>
       
       <div className={`min-h-screen bg-primary ${inter.className}`} style={{ overflow: 'auto', height: 'auto' }}>

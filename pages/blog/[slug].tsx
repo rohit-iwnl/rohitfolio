@@ -57,29 +57,42 @@ export default function PostPage({ post, settings, allPosts }: PostPageProps) {
   return (
     <>
       <Head>
-        <title>{post.title} | {settings?.title || demo.title}</title>
-        <meta name="description" content={post.excerpt || "Read this blog post"} />
+        <title>{post.title} | Rohit&apos;s Blog</title>
+        <meta name="description" content={post.excerpt || `Read "${post.title}" on Rohit's blog - insights about development, technology, and software engineering.`} />
         
         {/* OpenGraph Meta Tags */}
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt || "Read this blog post"} />
+        <meta property="og:title" content={`${post.title} | Rohit's Blog`} />
+        <meta property="og:description" content={post.excerpt || `Read "${post.title}" on Rohit's blog - insights about development, technology, and software engineering.`} />
         <meta property="og:image" content={ogImageUrl} />
-        <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://yoursite.com'}/blog/${post.slug.current}`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`Cover image for ${post.title}`} />
+        <meta property="og:url" content={`https://rohitmanivel.com/blog/${post.slug.current}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:site_name" content={settings?.title || demo.title} />
+        <meta property="og:site_name" content="Rohitfolio" />
+        <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt || "Read this blog post"} />
+        <meta name="twitter:title" content={`${post.title} | Rohit's Blog`} />
+        <meta name="twitter:description" content={post.excerpt || `Read "${post.title}" on Rohit's blog - insights about development, technology, and software engineering.`} />
         <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image:alt" content={`Cover image for ${post.title}`} />
+        <meta name="twitter:creator" content="@rohitmanivel" />
         
-        {/* Additional Meta Tags */}
+        {/* Article Meta Tags */}
         <meta name="author" content={post.author?.name || "Rohit Manivel"} />
-        <meta property="article:published_time" content={post.publishedAt} />
+        <meta property="article:published_time" content={post.publishedAt || post.date} />
+        <meta property="article:author" content={post.author?.name || "Rohit Manivel"} />
         {post.categories && post.categories.length > 0 && (
           <meta property="article:section" content={post.categories[0].title} />
         )}
+        {post.categories && post.categories.map((category: any, index: number) => (
+          <meta key={index} property="article:tag" content={category.title} />
+        ))}
+        
+        {/* Additional SEO */}
+        <link rel="canonical" href={`https://rohitmanivel.com/blog/${post.slug.current}`} />
       </Head>
       
       <div className={`min-h-screen bg-primary ${inter.className}`}>
