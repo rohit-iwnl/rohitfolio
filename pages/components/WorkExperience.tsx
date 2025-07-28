@@ -22,36 +22,38 @@ const workExperiences: WorkExperienceItem[] = [
     companyType: "",
     logoPath: "/assets/images/work/asu.png",
     description: [
-      "Leading product design initiatives for MacBook Pro line",
-      "Collaborating with cross-functional teams to deliver user-centered solutions",
-      "Conducting user research and usability testing",
-      "Creating high-fidelity prototypes and design systems"
+      "Migrated legacy React/Flask system to a modern Vite + FastAPI architecture",
+      "Implemented Redis caching and optimized D3.js visualizations for better performance",
+      "Built a real-time article scraper using Celery and RabbitMQ for async processing",
+      "Developed interactive dashboards with React and Redux for public policy analysis"
     ],
     achievements: [
-      "Improved user satisfaction by 25%",
-      "Launched 3 major product features",
-      "Led design for award-winning interface"
+      "Cut CI/CD build times by 40%",
+      "Improved dashboard render speed by 90% (12s → <1s)",
+      "Reduced user search latency by 40% with async scraping platform",
+      "Implemented server side fetching for data tables across all dashboards",
     ]
   },
   {
-    years: "Feb 2022 - May 2024", 
-    title: "Customer Success Engineer at",
+    years: "Feb 2023 - Aug 2023", 
+    title: "Customer Success Engineer Intern at",
     company: "Rubrik",
     companyType: "Data Security & Management",
     logoPath: "/assets/images/work/rubrik.png",
     description: [
-      "Researched and developed new browser performance optimizations",
-      "Analyzed user behavior patterns and browsing habits",
-      "Collaborated with engineering teams on Chrome features",
-      "Published research on web performance metrics"
+      "Diagnosed system failures and resolved issues in distributed AWS/Azure environments",
+      "Collaborated with SRE, Backend, and QA for root cause analysis and issue resolution",
+      "Documented detailed post-mortems and JIRA reports to streamline team debugging"
     ],
     achievements: [
-      "Reduced page load times by 30%",
-      "Published 5 research papers",
-      "Contributed to 12 Chrome releases"
+      "Resolved 40+ critical incidents with 100% SLA compliance",
+      "Led RCAs that deployed fixes improving system stability",
+      "Created knowledge base that reduced debugging time across teams"
     ]
   }
 ];
+
+
 
 export default function WorkExperience({}: Props) {
   const [selectedExperience, setSelectedExperience] = useState<WorkExperienceItem | null>(null);
