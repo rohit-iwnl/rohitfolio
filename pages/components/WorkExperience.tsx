@@ -127,7 +127,7 @@ export default function WorkExperience({}: Props) {
                   {/* Read More Button */}
                   <motion.button
                     onClick={() => handleExperienceClick(experience)}
-                    className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-blue-500 hover:bg-blue-600 rounded-full text-white transition-colors duration-200"
+                    className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-accent hover:bg-accent/80 rounded-full text-white transition-colors duration-200"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label="Read more about this experience"
